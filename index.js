@@ -7,9 +7,9 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Working Now!');
-});
+// app.get('/', (req, res) => {
+//   res.send('Working Now!');
+// });
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
