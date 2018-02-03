@@ -1,10 +1,53 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class App extends Component {
+  signupClick() {
+    const userInfo = {
+      email: "email",
+      username: "username",
+      password: "password"
+    }
+
+    async function signup() {
+      await axios.post('/api/signup', userInfo);
+    }
+
+    signup();
+  }
+
+  loginClick() {
+    const userInfo = {
+      email: "email",
+      username: "username",
+      password: "password"
+    }
+
+    async function login() {
+      await axios.get('/api/login', userInfo);
+    }
+
+    login();
+  }
 
   render() {
     return (
-      <div> React is working! </div>
+      <div>
+        React is working!
+        <div>
+          <button onClick={this.signupClick}>
+            Signup
+          </button>
+        </div>
+        <div>
+          <button onClick={this.loginClick}>
+            Login
+          </button>
+        </div>
+        <div>
+          <a href="/api/logout">Logout</a>
+        </div>
+      </div>
     );
   }
 }
