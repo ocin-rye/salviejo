@@ -24,7 +24,7 @@ class App extends Component {
     }
 
     async function login() {
-      await axios.get('/api/login', userInfo);
+      await axios.post('/api/login', userInfo);
     }
 
     login();

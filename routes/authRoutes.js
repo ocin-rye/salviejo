@@ -4,11 +4,14 @@ const User =  mongoose.model('users');
 
 module.exports = (app) => {
 
-  // app.get('/api/login',
-  // passport.authenticate(
-  //   'local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }
-  //   )
-  // );
+  app.post('/api/login',
+    passport.authenticate('local'),
+    (req, res) => {
+      res.sendStatus(201);
+      console.log('authentication successful');
+      console.log(req.user || 'no user');
+    }
+  );
 
   app.post('/api/signup', (req, res) => {
 
@@ -22,11 +25,19 @@ module.exports = (app) => {
       password
     }).save();
 
+  res.send({});
   });
 
-  // app.get('/api/logout', (req, res) => {
-  //   req.logout();
-  //   res.redirect('/');
-  // });
+  app.get('/api/checkuser', (req, res) => {
+    console.log(req.user || 'no user');
+    res.redirect('/');
+  });
+
+  app.get('/api/logout', (req, res) => {
+    req.logout();
+    console.log('logout successful');
+    console.log(req.user || 'no user');
+    res.redirect('/');
+  });
 
 };
