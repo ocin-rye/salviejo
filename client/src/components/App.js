@@ -47,6 +47,9 @@ class App extends Component {
         <div>
           <a href="/api/logout">Logout</a>
         </div>
+        <div>
+          <a href="/api/checkuser">Check User</a>
+        </div>
       </div>
     );
   }
