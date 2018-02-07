@@ -8,11 +8,6 @@ const userSchema = new Schema({
   password: String
 });
 
-// userSchema.methods.validPassword = function( pwd ) {
-//     // EXAMPLE CODE!
-//     return ( this.password === pwd );
-// };
-
 // checking if password is valid
 userSchema.methods.validPassword = function(password) {
     return bcrypt.compare(password, this.password);

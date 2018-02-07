@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PayPalButton from './PayPalButton'
 
 class App extends Component {
   signupClick() {
@@ -49,6 +50,9 @@ class App extends Component {
         </div>
         <div>
           <a href="/api/checkuser">Check User</a>
+        </div>
+        <div>
+          <PayPalButton />
         </div>
       </div>
     );
