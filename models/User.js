@@ -10,27 +10,28 @@ const userSchema = new Schema({
 
 // checking if password is valid
 userSchema.methods.validPassword = function(password) {
-    return bcrypt.compare(password, this.password);
+  return bcrypt.compare(password, this.password);
 };
 
-userSchema.pre("save", async function (next) {
-
+userSchema.pre('save', async function(next) {
   try {
     console.log(this.password);
-    const hash = await bcrypt.hash(this.password, 10).then(result => {
-      // success
-      this.password = result;
-      console.log(this.password);
-      next();
-    }).catch(err => {
-      // error
-      next(err);
-    });
+    const hash = await bcrypt
+      .hash(this.password, 10)
+      .then(result => {
+        // success
+        this.password = result;
+        console.log(this.password);
+        next();
+      })
+      .catch(err => {
+        // error
+        next(err);
+      });
   } catch (err) {
     // error
     next(err);
   }
 });
-
 
 mongoose.model('users', userSchema);

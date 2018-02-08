@@ -1,62 +1,54 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
-import PayPalButton from './PayPalButton'
+import PayPalButton from './PayPalButton';
 
-class App extends Component {
-  signupClick() {
-    const userInfo = {
-      email: "email",
-      username: "username",
-      password: "password"
-    }
+const signupClick = () => {
+  const userInfo = {
+    email: 'email',
+    username: 'username',
+    password: 'password',
+  };
 
-    async function signup() {
-      await axios.post('/api/signup', userInfo);
-    }
-
-    signup();
+  async function signup() {
+    await axios.post('/api/signup', userInfo);
   }
 
-  loginClick() {
-    const userInfo = {
-      email: "email",
-      username: "username",
-      password: "password"
-    }
+  signup();
+};
 
-    async function login() {
-      await axios.post('/api/login', userInfo);
-    }
+const loginClick = () => {
+  const userInfo = {
+    email: 'email',
+    username: 'username',
+    password: 'password',
+  };
 
-    login();
+  async function login() {
+    await axios.post('/api/login', userInfo);
   }
 
-  render() {
-    return (
-      <div>
-        React is working!
-        <div>
-          <button onClick={this.signupClick}>
-            Signup
-          </button>
-        </div>
-        <div>
-          <button onClick={this.loginClick}>
-            Login
-          </button>
-        </div>
-        <div>
-          <a href="/api/logout">Logout</a>
-        </div>
-        <div>
-          <a href="/api/checkuser">Check User</a>
-        </div>
-        <div>
-          <PayPalButton />
-        </div>
-      </div>
-    );
-  }
-}
+  login();
+};
+
+const App = () => (
+  <div>
+    React is working!
+    <div>
+      <button onClick={signupClick}>Signup</button>
+    </div>
+    <div>
+      <button onClick={loginClick}>Login</button>
+    </div>
+    <div>
+      <a href="/api/logout">Logout</a>
+    </div>
+    <div>
+      <a href="/api/checkuser">Check User</a>
+    </div>
+    <div>
+      <PayPalButton />
+    </div>
+  </div>
+);
 
 export default App;

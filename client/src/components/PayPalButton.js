@@ -1,53 +1,49 @@
-import React, { Component } from 'react';
+import React from 'react';
 import paypal from 'paypal-checkout';
 // import scriptLoader from 'react-async-script-loader';
 
-class PayPalButton extends Component {
+const renderPayPalButton = () => {
+  paypal.Button.render(
+    {
+      env: 'sandbox', // Or 'sandbox'
 
-  renderPayPalButton(){
-    paypal.Button.render({
+      client: {
+        sandbox:
+          'AdjknLCClFEx2h5QG-MwmFTo0C3WM6SZQ0MwYARlPWOU8fOYVF7FKh12xrmDp_GVJgx6o7A4TD-BGh6d',
+        production: 'xxxxxxxxx',
+      },
 
-        env: 'sandbox', // Or 'sandbox'
+      commit: true, // Show a 'Pay Now' button
 
-        client: {
-            sandbox:    'AdjknLCClFEx2h5QG-MwmFTo0C3WM6SZQ0MwYARlPWOU8fOYVF7FKh12xrmDp_GVJgx6o7A4TD-BGh6d',
-            production: 'xxxxxxxxx'
-        },
+      payment: function(data, actions) {
+        return actions.payment.create({
+          payment: {
+            transactions: [
+              {
+                amount: { total: '1.00', currency: 'USD' },
+              },
+            ],
+          },
+        });
+      },
 
-        commit: true, // Show a 'Pay Now' button
+      onAuthorize: function(data, actions) {
+        return actions.payment.execute().then(function(payment) {
+          // The payment is complete!
+          // You can now show a confirmation message to the customer
+        });
+      },
+    },
+    '#paypal-button',
+  );
+};
 
-        payment: function(data, actions) {
-            return actions.payment.create({
-                payment: {
-                    transactions: [
-                        {
-                            amount: { total: '1.00', currency: 'USD' }
-                        }
-                    ]
-                }
-            });
-        },
-
-        onAuthorize: function(data, actions) {
-            return actions.payment.execute().then(function(payment) {
-
-                // The payment is complete!
-                // You can now show a confirmation message to the customer
-            });
-        }
-
-    }, '#paypal-button');
-  }
-
-  render() {
-    return (
-      <div>
-        <p>PayPal Button Component</p>
-        {this.renderPayPalButton()}
-        <div id="paypal-button"></div>
-      </div>
-    );
-  }
-}
+const PayPalButton = () => (
+  <div>
+    <p>PayPal Button Component</p>
+    {renderPayPalButton()}
+    <div id="paypal-button" />
+  </div>
+);
 
 export default PayPalButton;
