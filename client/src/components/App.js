@@ -1,54 +1,36 @@
-import React from 'react';
-import axios from 'axios';
-import PayPalButton from './PayPalButton';
+import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as actions from '../actions';
 
-const signupClick = () => {
-  const userInfo = {
-    email: 'email',
-    username: 'username',
-    password: 'password',
-  };
+import AuthAdmin from './admin/auth/AdminAuth';
+import PayPalButton from './cart/PayPalButton';
 
-  async function signup() {
-    await axios.post('/api/signup', userInfo);
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
   }
 
-  signup();
-};
-
-const loginClick = () => {
-  const userInfo = {
-    email: 'email',
-    username: 'username',
-    password: 'password',
-  };
-
-  async function login() {
-    await axios.post('/api/login', userInfo);
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          React is working!
+          <AuthAdmin />
+          <Route exact path="/cart" component={PayPalButton} />
+          {/* <Header />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/surveys" component={Dashboard} />
+          <Route path="/surveys/new" component={SurveyNew} /> */}
+        </div>
+      </BrowserRouter>
+    );
   }
+}
 
-  login();
+App.propTypes = {
+  fetchUser: PropTypes.func.isRequired,
 };
 
-const App = () => (
-  <div>
-    React is working!
-    <div>
-      <button onClick={signupClick}>Signup</button>
-    </div>
-    <div>
-      <button onClick={loginClick}>Login</button>
-    </div>
-    <div>
-      <a href="/api/logout">Logout</a>
-    </div>
-    <div>
-      <a href="/api/checkuser">Check User</a>
-    </div>
-    <div>
-      <PayPalButton />
-    </div>
-  </div>
-);
-
-export default App;
+export default connect(null, actions)(App);

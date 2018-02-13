@@ -1,17 +1,18 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
-const User = mongoose.model('users');
-const bcrypt = require('bcrypt');
 
-module.exports = app => {
+const User = mongoose.model('users');
+
+module.exports = (app) => {
   app.post('/api/login', passport.authenticate('local'), (req, res) => {
-    res.sendStatus(201);
+    // res.sendStatus(201);
+    res.send(req.user);
     console.log('authentication successful');
     console.log(req.user || 'no user');
   });
 
   app.post('/api/signup', (req, res, done) => {
-    User.findOne({ email: req.body.email }, function(err, user) {
+    User.findOne({ email: req.body.email }, (err, user) => {
       if (err) {
         console.log('Error has happened');
         return done(err);
@@ -22,15 +23,21 @@ module.exports = app => {
       }
       if (!user) {
         const { username, email, password } = req.body;
-        const user = new User({
+        new User({
           username,
           email,
-          password
+          password,
         }).save();
       }
+
+      return null;
     });
 
     res.send({});
+  });
+
+  app.get('/api/current_user', (req, res) => {
+    res.send(req.user);
   });
 
   app.get('/api/checkuser', (req, res) => {
