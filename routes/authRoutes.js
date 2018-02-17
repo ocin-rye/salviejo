@@ -1,5 +1,6 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
+const keys = require('../config/keys');
 
 const User = mongoose.model('users');
 
@@ -12,28 +13,37 @@ module.exports = (app) => {
   });
 
   app.post('/api/signup', (req, res, done) => {
-    User.findOne({ email: req.body.email }, (err, user) => {
+    User.findOne({ email: req.body.email }, async (err, user) => {
       if (err) {
         console.log('Error has happened');
         return done(err);
       }
       if (user) {
-        console.log('Email already exisits in DB');
+        console.log('Email already exists in DB');
         return done(err);
       }
       if (!user) {
-        const { username, email, password } = req.body;
-        new User({
+        const {
+          username, email, password, signUpKey,
+        } = req.body;
+
+        if (signUpKey !== keys.signUpKey) {
+          return console.log("Sign up key doesn't match");
+        }
+
+        const userNew = await new User({
           username,
           email,
           password,
         }).save();
+        console.log(userNew);
+        res.send(userNew);
       }
 
-      return null;
+      // return null;
     });
 
-    res.send({});
+    // res.send({});
   });
 
   app.get('/api/current_user', (req, res) => {

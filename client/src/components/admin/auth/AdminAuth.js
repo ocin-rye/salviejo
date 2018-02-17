@@ -10,41 +10,48 @@ class AdminAuth extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      signedIn: '...loading',
+      signedIn: '',
     };
   }
 
-  // componentDidMount() {
-  //   this.setState({ signedIn: this.props.auth });
+  // componentWillReceiveProps(nextProps) {
+  //   console.log(this.props.auth, nextProps.auth);
+  //   if (JSON.stringify(this.props.auth) !== JSON.stringify(nextProps.auth)) {
+  //     // console.log(nextProps.auth, this.props.auth);
+  //     this.setState({ signedIn: nextProps.auth });
+  //   }
   // }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(this.props.auth, nextProps.auth);
-    if (JSON.stringify(this.props.auth) !== JSON.stringify(nextProps.auth)) {
-      // console.log(nextProps.auth, this.props.auth);
-      this.setState({ signedIn: nextProps.auth });
-    }
-  }
-
-  // loginState() {
-  //   this.setState({ signedIn: true });
-  //   return null;
+  // renderContent() {
+  //
+  //   if (this.state.signedIn === false) {
+  //     return (
+  //       <div>
+  //         <SignUp />
+  //         <Login />
+  //       </div>
+  //     );
+  //   }
+  //   if (typeof this.state.signedIn === 'object') {
+  //     return (
+  //       <div>
+  //         <Logout />
+  //       </div>
+  //     );
+  //   }
+  //   return <div>...loading</div>;
   // }
 
   renderContent() {
-    // console.log(this.props.auth);
-    // console.log(this.props.form);
-    // console.log(this.state.signedIn);
-    if (this.state.signedIn === false) {
+    if (this.props.auth === false) {
       return (
         <div>
           <SignUp />
           <Login />
-          <Logout />
         </div>
       );
     }
-    if (this.state.signedIn) {
+    if (typeof this.props.auth === 'object') {
       return (
         <div>
           <Logout />
@@ -57,9 +64,6 @@ class AdminAuth extends Component {
   render() {
     return (
       <div>
-        {/* <SignUp /> */}
-        {/* <Login /> */}
-        {/* <Logout /> */}
         {this.renderContent()}
         <button onClick={() => this.setState({ signedIn: true })}>true</button>
         <button onClick={() => this.setState({ signedIn: false })}>false</button>
@@ -74,8 +78,8 @@ AdminAuth.propTypes = {
   auth: PropTypes.oneOfType([PropTypes.bool, PropTypes.object, PropTypes.string]).isRequired,
 };
 
-function mapStateToProps({ auth, form }) {
-  return { auth, form };
+function mapStateToProps({ auth }) {
+  return { auth };
 }
 
 export default connect(mapStateToProps)(AdminAuth);
