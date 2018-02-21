@@ -32,9 +32,8 @@ export const productSubmit = values => async (dispatch) => {
 };
 
 export const fetchProducts = values => async (dispatch) => {
-  console.log('value', values);
-
-  const res = await axios.post('/api/products', values);
+  console.log('This is the fetched products values:', values);
+  const res = await axios.get('/api/products', values);
 
   dispatch({ type: FETCH_PRODUCTS, payload: res.data });
 };

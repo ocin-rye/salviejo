@@ -68,7 +68,6 @@ class AdminAuth extends Component {
         <button onClick={() => this.setState({ signedIn: true })}>true</button>
         <button onClick={() => this.setState({ signedIn: false })}>false</button>
         <button onClick={() => this.setState({ signedIn: '...loading' })}>...loading</button>
-        {/* {console.log(this.props.auth)} */}
       </div>
     );
   }

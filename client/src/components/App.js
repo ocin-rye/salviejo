@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from '../actions';
@@ -7,6 +7,9 @@ import * as actions from '../actions';
 import AddProduct from './admin/product/AddProduct';
 import AuthAdmin from './admin/auth/AdminAuth';
 import PayPalButton from './cart/PayPalButton';
+import Products from './product/Products';
+import ProductItem from './product/ProductItem';
+import NotFound from './NotFound';
 
 class App extends Component {
   componentDidMount() {
@@ -15,19 +18,25 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <div>
           React is working!
           {/* <AuthAdmin /> */}
-          <Route exact path="/" component={AuthAdmin} />
-          <Route exact path="/cart" component={PayPalButton} />
-          <Route exact path="/addproduct" component={AddProduct} />
-          {/* <Header />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/surveys" component={Dashboard} />
-          <Route path="/surveys/new" component={SurveyNew} /> */}
+          <Switch>
+            <Route exact path="/" component={AuthAdmin} />
+            <Route exact path="/cart" component={PayPalButton} />
+            <Route exact path="/addproduct" component={AddProduct} />
+            <Route path="/notfound" component={NotFound} />
+            <Route path="/:products/:productitem" component={ProductItem} />
+            <Route path="/:products" component={Products} />
+            {/* <Route path="/:products/:product-item" component={ProductItem} /> */}
+            {/* <Header />
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/surveys" component={Dashboard} />
+            <Route path="/surveys/new" component={SurveyNew} /> */}
+          </Switch>
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

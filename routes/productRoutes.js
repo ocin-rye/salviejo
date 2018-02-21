@@ -24,9 +24,13 @@ module.exports = (app) => {
   });
 
   app.get('/api/products', async (req, res) => {
-    const products = await Product.find();
+    const products = await Product.find().select({
+      description: false,
+      sku: false,
+      Date: false,
+    });
 
-    console.log(products);
+    // console.log(products);
 
     res.send(products);
   });
