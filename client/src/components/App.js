@@ -27,7 +27,7 @@ class App extends Component {
             <Route exact path="/cart" component={PayPalButton} />
             <Route exact path="/addproduct" component={AddProduct} />
             <Route path="/notfound" component={NotFound} />
-            <Route path="/:products/:productitem" component={ProductItem} />
+            <Route path="/:products/:productItem" component={ProductItem} />
             <Route path="/:products" component={Products} />
             {/* <Route path="/:products/:product-item" component={ProductItem} /> */}
             {/* <Header />

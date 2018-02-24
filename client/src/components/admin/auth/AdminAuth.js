@@ -7,13 +7,6 @@ import Login from './Login';
 import Logout from './Logout';
 
 class AdminAuth extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      signedIn: '',
-    };
-  }
-
   // componentWillReceiveProps(nextProps) {
   //   console.log(this.props.auth, nextProps.auth);
   //   if (JSON.stringify(this.props.auth) !== JSON.stringify(nextProps.auth)) {
@@ -62,14 +55,7 @@ class AdminAuth extends Component {
   }
 
   render() {
-    return (
-      <div>
-        {this.renderContent()}
-        <button onClick={() => this.setState({ signedIn: true })}>true</button>
-        <button onClick={() => this.setState({ signedIn: false })}>false</button>
-        <button onClick={() => this.setState({ signedIn: '...loading' })}>...loading</button>
-      </div>
-    );
+    return <div>{this.renderContent()}</div>;
   }
 }
 

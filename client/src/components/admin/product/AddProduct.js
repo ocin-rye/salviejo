@@ -8,10 +8,11 @@ class AddProduct extends Component {
   onSubmitHandle() {
     const productInfo = {
       type: this.props.addProductForm.values.type,
-      name: this.props.addProductForm.values.name.trim(),
+      name: this.props.addProductForm.values.name.replace(/\s+/g, ' ').trim(),
       price: this.props.addProductForm.values.price.trim(),
       style: this.props.addProductForm.values.style.split(','),
       description: this.props.addProductForm.values.description.split(','),
+      images: this.props.addProductForm.values.images.split(','),
       sku: this.props.addProductForm.values.sku.trim(),
     };
 
@@ -51,6 +52,10 @@ class AddProduct extends Component {
               <Field type="text" name="description" component="input" />
             </div>
             <div>
+              <label>Images</label>
+              <Field type="text" name="images" component="input" />
+            </div>
+            <div>
               <label>SKU</label>
               <Field type="text" name="sku" component="input" />
             </div>
@@ -74,6 +79,7 @@ function mapStateToProps(state) {
       price: '',
       style: '',
       description: '',
+      images: '',
       sku: '',
     },
   };

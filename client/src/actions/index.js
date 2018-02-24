@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, SUBMIT_PRODUCT, FETCH_PRODUCTS } from './types';
+import { FETCH_USER, SUBMIT_PRODUCT, FETCH_PRODUCTS, ADD_TO_CART } from './types';
 
 export const fetchUser = () => async (dispatch) => {
   const res = await axios.get('/api/current_user');
@@ -36,4 +36,17 @@ export const fetchProducts = values => async (dispatch) => {
   const res = await axios.get('/api/products', values);
 
   dispatch({ type: FETCH_PRODUCTS, payload: res.data });
+};
+
+export const fetchProductItem = values => async (dispatch) => {
+  console.log('This is the fetched product item values:', values);
+  const res = await axios.get('/api/product_item', { params: values });
+
+  dispatch({ type: FETCH_PRODUCTS, payload: res.data });
+};
+
+export const addToCart = values => (dispatch) => {
+  const res = values;
+
+  dispatch({ type: ADD_TO_CART, payload: res });
 };

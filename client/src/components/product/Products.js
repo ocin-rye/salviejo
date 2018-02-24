@@ -38,10 +38,13 @@ class Products extends Component {
           <p>{product.name.replace(/\s+/g, '-').toLowerCase()}</p>
         </div>
         <div>
-          <h2>{product.style}</h2>
+          <h2>{product.style.map(styleItem => <p>{styleItem}</p>)}</h2>
         </div>
         <div>
           <h2>{product.price}</h2>
+        </div>
+        <div>
+          <h2>{product.images.map(image => <p>{image}</p>)}</h2>
         </div>
       </div>
     ));
