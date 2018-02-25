@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchProductItem } from '../../actions';
 
 import AddToCartButton from '../cart/AddToCartButton';
+import RemoveFromCartButton from '../cart/RemoveFromCartButton';
 
 class ProductItem extends Component {
   componentDidMount() {
@@ -66,6 +67,7 @@ class ProductItem extends Component {
       <div>
         <h1>Product Item</h1>
         <AddToCartButton cartItem={this.props.productItem} />
+        <RemoveFromCartButton cartItem={this.props.productItem} />
         <div>{this.renderContent()}</div>
       </div>
     );

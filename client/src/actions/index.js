@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, SUBMIT_PRODUCT, FETCH_PRODUCTS, ADD_TO_CART } from './types';
+import { FETCH_USER, SUBMIT_PRODUCT, FETCH_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART } from './types';
 
 export const fetchUser = () => async (dispatch) => {
   const res = await axios.get('/api/current_user');
@@ -49,4 +49,10 @@ export const addToCart = values => (dispatch) => {
   const res = values;
 
   dispatch({ type: ADD_TO_CART, payload: res });
+};
+
+export const removeFromCart = values => (dispatch) => {
+  const res = values;
+
+  dispatch({ type: REMOVE_FROM_CART, payload: res });
 };
