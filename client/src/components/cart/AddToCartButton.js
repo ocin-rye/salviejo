@@ -4,7 +4,11 @@ import { addToCart } from '../../actions';
 
 class AddToCartButton extends Component {
   handleClick() {
-    this.props.addToCart(this.props.cartItem[0]);
+    const cartObject = Object.assign({}, this.props.cartItem, { quantity: 1 });
+
+    // console.log(cartObject);
+
+    this.props.addToCart(cartObject);
     // console.log(this.props);
   }
 

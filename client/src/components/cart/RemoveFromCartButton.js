@@ -4,7 +4,7 @@ import { removeFromCart } from '../../actions';
 
 class RemoveFromCartButton extends Component {
   handleClick() {
-    this.props.removeFromCart(this.props.cartItem[0]);
+    this.props.removeFromCart(this.props.cartItem);
     // console.log(this.props);
   }
 

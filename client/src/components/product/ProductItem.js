@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { fetchProductItem } from '../../actions';
@@ -36,6 +36,11 @@ class ProductItem extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.productItem !== nextProps.match.params.productItem) {
+      const productItemQuery = nextProps.match.params.productItem.toLowerCase().replace(/-/g, ' ');
+      this.props.fetchProductItem({ productItemQuery });
+    }
+
     if (JSON.stringify(this.props.productItem) !== JSON.stringify(nextProps.productItem)) {
       if (nextProps.productItem === false) {
         return this.props.history.push('/notfound');
@@ -44,7 +49,7 @@ class ProductItem extends Component {
   }
 
   renderContent() {
-    console.log(this.props.productItem);
+    console.log(this.props);
     return this.props.productItem.map(product => (
       <div key={product._id}>
         <div>
@@ -66,8 +71,15 @@ class ProductItem extends Component {
     return (
       <div>
         <h1>Product Item</h1>
-        <AddToCartButton cartItem={this.props.productItem} />
-        <RemoveFromCartButton cartItem={this.props.productItem} />
+        <div>
+          <Link to="/collection/sample-product-10">Product Item 10</Link>
+        </div>
+        <div>
+          <Link to="/collection/sample-product-11">Product Item 11</Link>
+        </div>
+        {/* <div>{console.log(this.props.productItem[0])}</div> */}
+        <AddToCartButton cartItem={this.props.productItem[0]} />
+        <RemoveFromCartButton cartItem={this.props.productItem[0]} />
         <div>{this.renderContent()}</div>
       </div>
     );
