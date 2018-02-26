@@ -6,6 +6,8 @@ import { fetchProductItem } from '../../actions';
 
 import AddToCartButton from '../cart/AddToCartButton';
 import RemoveFromCartButton from '../cart/RemoveFromCartButton';
+import IncreaseQuantityButton from '../cart/IncreaseQuantityButton';
+import DecreaseQuantityButton from '../cart/DecreaseQuantityButton';
 
 class ProductItem extends Component {
   componentDidMount() {
@@ -84,6 +86,8 @@ class ProductItem extends Component {
         {/* <div>{console.log(this.props.productItem[0])}</div> */}
         <AddToCartButton cartItem={this.props.productItem[0]} />
         <RemoveFromCartButton cartItem={this.props.productItem[0]} />
+        <IncreaseQuantityButton cartItem={this.props.productItem[0]} />
+        <DecreaseQuantityButton cartItem={this.props.productItem[0]} />
         <div>{this.renderContent()}</div>
       </div>
     );

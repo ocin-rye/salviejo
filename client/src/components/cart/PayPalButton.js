@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import paypal from 'paypal-checkout';
+import { connect } from 'react-redux';
 // import scriptLoader from 'react-async-script-loader';
 
 /* eslint-disable no-unused-vars */
@@ -74,12 +75,20 @@ const renderPayPalButton = () => {
 
 /* eslint-disable no-unused-vars */
 
-const PayPalButton = () => (
-  <div>
-    <p>PayPal Button Component</p>
-    {renderPayPalButton()}
-    <div id="paypal-button" />
-  </div>
-);
+class PayPalButton extends Component {
+  render() {
+    return (
+      <div>
+        <p>PayPal Button Component</p>
+        {renderPayPalButton()}
+        <div id="paypal-button" />
+      </div>
+    );
+  }
+}
 
-export default PayPalButton;
+function mapStateToProps({ cart }) {
+  return { cart };
+}
+
+export default connect(mapStateToProps)(PayPalButton);
