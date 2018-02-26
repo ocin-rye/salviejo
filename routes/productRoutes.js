@@ -41,8 +41,9 @@ module.exports = (app) => {
     const products = await Product.find({ utilName: req.query.productItemQuery }).limit(1);
 
     // console.log(req.query.productItemQuery);
-
-    // console.log(products);
+    // if (products.length === 0) {
+    //   products = null;
+    // }
 
     res.send(products);
   });

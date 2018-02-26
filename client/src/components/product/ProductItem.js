@@ -11,7 +11,7 @@ class ProductItem extends Component {
   componentDidMount() {
     // console.log(this.props.match.params.productItem);
 
-    // console.log(this.props);
+    // console.log(this.props.productItem);
 
     // console.log();
 
@@ -21,17 +21,17 @@ class ProductItem extends Component {
 
     this.props.fetchProductItem({ productItemQuery });
 
-    // console.log(this.props);
-
     const productTypes = ['collection', 'souvenirs', 'other'];
 
     if (!_.includes(productTypes, this.props.match.params.products.toLowerCase())) {
       // console.log('this is a valid product type page.');
-      this.props.history.push('/notfound');
+      this.props.history.replace('/notfound');
     }
 
+    console.log(this.props.productItem);
+
     if (this.props.productItem === false) {
-      return this.props.history.push('/notfound');
+      return this.props.history.replace('/notfound');
     }
   }
 
@@ -43,13 +43,16 @@ class ProductItem extends Component {
 
     if (JSON.stringify(this.props.productItem) !== JSON.stringify(nextProps.productItem)) {
       if (nextProps.productItem === false) {
-        return this.props.history.push('/notfound');
+        return this.props.history.replace('/notfound');
       }
     }
   }
 
   renderContent() {
     console.log(this.props);
+    if (this.props.productItem === false) {
+      return null;
+    }
     return this.props.productItem.map(product => (
       <div key={product._id}>
         <div>
@@ -70,6 +73,7 @@ class ProductItem extends Component {
   render() {
     return (
       <div>
+        {console.log(this.props.productItem)}
         <h1>Product Item</h1>
         <div>
           <Link to="/collection/sample-product-10">Product Item 10</Link>

@@ -23,7 +23,7 @@ class Products extends Component {
       this.props.fetchProducts(params.products.toLowerCase());
     } else {
       console.log('this is NOT a valid product type page.');
-      this.props.history.push('/notfound');
+      this.props.history.replace('/notfound');
     }
 
     // console.log(this.props.match);

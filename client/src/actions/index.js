@@ -8,7 +8,7 @@ export const fetchUser = () => async (dispatch) => {
 };
 
 export const loginSubmit = values => async (dispatch) => {
-  console.log('value', values);
+  // console.log('value', values);
 
   const res = await axios.post('/api/login', values);
 
@@ -16,7 +16,7 @@ export const loginSubmit = values => async (dispatch) => {
 };
 
 export const signUpSubmit = values => async (dispatch) => {
-  console.log('value', values);
+  // console.log('value', values);
 
   const res = await axios.post('/api/signup', values);
 
@@ -24,7 +24,7 @@ export const signUpSubmit = values => async (dispatch) => {
 };
 
 export const productSubmit = values => async (dispatch) => {
-  console.log('value', values);
+  // console.log('value', values);
 
   const res = await axios.post('/api/products', values);
 
@@ -32,14 +32,14 @@ export const productSubmit = values => async (dispatch) => {
 };
 
 export const fetchProducts = values => async (dispatch) => {
-  console.log('This is the fetched products values:', values);
+  // console.log('This is the fetched products values:', values);
   const res = await axios.get('/api/products', values);
 
   dispatch({ type: FETCH_PRODUCTS, payload: res.data });
 };
 
 export const fetchProductItem = values => async (dispatch) => {
-  console.log('This is the fetched product item values:', values);
+  // console.log('This is the fetched product item values:', values);
   const res = await axios.get('/api/product_item', { params: values });
 
   dispatch({ type: FETCH_PRODUCTS, payload: res.data });
