@@ -25,6 +25,7 @@ class AddProduct extends Component {
         <div>
           <form onSubmit={this.props.handleSubmit(() => this.onSubmitHandle())}>
             <h4>Add Product</h4>
+            {console.log(this.props)}
             <div>
               <label>Type:</label>
               <label>Collection</label>

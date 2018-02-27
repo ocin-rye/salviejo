@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { compose } from 'redux';
 import { Link, withRouter } from 'react-router-dom';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { fetchProductItem } from '../../actions';
+import { Field, reduxForm } from 'redux-form';
 
+import { fetchProductItem } from '../../actions';
 import AddToCartButton from '../cart/AddToCartButton';
 import RemoveFromCartButton from '../cart/RemoveFromCartButton';
 import IncreaseQuantityButton from '../cart/IncreaseQuantityButton';
@@ -61,6 +63,16 @@ class ProductItem extends Component {
           <h1>{product.name}</h1>
         </div>
         <div>
+          <form>
+            {product.style.map((style, index) => (
+              <div key={style}>
+                <label>{style}</label>
+                <Field name="style" type="radio" value={style} component="input" />
+              </div>
+            ))}
+          </form>
+        </div>
+        <div>
           {product.images.map((image, index) => (
             <span key={`${product.name} ${index}`}>
               <img src={image} alt={`${product.name} ${Number(index) + 1}`} />
@@ -75,7 +87,7 @@ class ProductItem extends Component {
   render() {
     return (
       <div>
-        {console.log(this.props.productItem)}
+        {/* {console.log(this.props.productItemForm.map(x => x.values))} */}
         <h1>Product Item</h1>
         <div>
           <Link to="/collection/sample-product-10">Product Item 10</Link>
@@ -84,7 +96,10 @@ class ProductItem extends Component {
           <Link to="/collection/sample-product-11">Product Item 11</Link>
         </div>
         {/* <div>{console.log(this.props.productItem[0])}</div> */}
-        <AddToCartButton cartItem={this.props.productItem[0]} />
+        <AddToCartButton
+          cartItem={this.props.productItem[0]}
+          styleChoice={this.props.productItemForm}
+        />
         <RemoveFromCartButton cartItem={this.props.productItem[0]} />
         <IncreaseQuantityButton cartItem={this.props.productItem[0]} />
         <DecreaseQuantityButton cartItem={this.props.productItem[0]} />
@@ -104,8 +119,21 @@ class ProductItem extends Component {
 //
 // export default connect(mapStateToProps)(ProductItem);
 
-function mapStateToProps({ products }) {
-  return { productItem: products };
+function mapStateToProps(state) {
+  return {
+    productItem: state.products,
+    productItemForm: state.form.productItemForm,
+    initialValues: {
+      style: '',
+    },
+  };
 }
 
-export default connect(mapStateToProps, { fetchProductItem })(withRouter(ProductItem));
+// export default connect(mapStateToProps, { fetchProductItem })(withRouter(ProductItem));
+
+export default compose(
+  connect(mapStateToProps, { fetchProductItem }),
+  reduxForm({
+    form: 'productItemForm',
+  }),
+)(withRouter(ProductItem));
