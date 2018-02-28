@@ -17,7 +17,7 @@ const persistConfig = {
   key: 'root',
   storage,
   stateReconciler: hardSet,
-  whitelist: ['cart'],
+  // whitelist: ['cart'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
