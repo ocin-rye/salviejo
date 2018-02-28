@@ -81,6 +81,7 @@ class PayPalButton extends Component {
       <div>
         <p>PayPal Button Component</p>
         {renderPayPalButton()}
+        {console.log(this.props)}
         <div id="paypal-button" />
       </div>
     );
