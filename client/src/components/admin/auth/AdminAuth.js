@@ -55,7 +55,12 @@ class AdminAuth extends Component {
   }
 
   render() {
-    return <div>{this.renderContent()}</div>;
+    return (
+      <div>
+        <div>{console.log(this.props)}</div>
+        {this.renderContent()}
+      </div>
+    );
   }
 }
 
