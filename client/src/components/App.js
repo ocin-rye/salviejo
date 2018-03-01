@@ -23,7 +23,7 @@ class App extends Component {
           React is working!
           {/* <AuthAdmin /> */}
           <Switch>
-            <Route exact path="/" component={AuthAdmin} />
+            <Route exact path="/admin" component={AuthAdmin} />
             <Route exact path="/cart" component={PayPalButton} />
             <Route exact path="/addproduct" component={AddProduct} />
             <Route path="/notfound" component={NotFound} />

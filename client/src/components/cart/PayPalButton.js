@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import paypal from 'paypal-checkout';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-// import scriptLoader from 'react-async-script-loader';
 
-/* eslint-disable no-unused-vars */
 class PayPalButton extends Component {
   renderPayPalButton() {
     console.log(this.props);
@@ -48,18 +46,6 @@ class PayPalButton extends Component {
           shipping: shipping.toString(),
         },
       };
-      // {
-      //   total: '96.06',
-      //   currency: 'USD',
-      //   details: {
-      //     subtotal: subtotal,
-      //     tax: tax,
-      //     shipping: '20.00',
-      //     handling_fee: '1.00',
-      //     shipping_discount: '-1.00',
-      //     insurance: '0.01',
-      //   },
-      // }
     };
 
     console.log(transactionAmount());
