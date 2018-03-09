@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { productSubmit } from '../../../actions';
+import { productSubmit } from '../../../../actions';
 
 class AddProduct extends Component {
   onSubmitHandle() {
@@ -29,9 +29,19 @@ class AddProduct extends Component {
             <div>
               <label>Type:</label>
               <label>Collection</label>
-              <Field name="type" type="radio" value="collection" component="input" />
+              <Field
+                name="type"
+                type="radio"
+                value="collection"
+                component="input"
+              />
               <label>Souvenirs</label>
-              <Field name="type" type="radio" value="souvenirs" component="input" />
+              <Field
+                name="type"
+                type="radio"
+                value="souvenirs"
+                component="input"
+              />
               <label>Other</label>
               <Field name="type" type="radio" value="other" component="input" />
               {/* <Field type="text" name="type" component="input" /> */}

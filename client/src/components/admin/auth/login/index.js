@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { loginSubmit } from '../../../actions';
+import { loginSubmit } from '../../../../actions';
 
 class Login extends Component {
   onSubmitHandle() {

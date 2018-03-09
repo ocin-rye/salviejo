@@ -4,12 +4,15 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from '../actions';
 
-import AddProduct from './admin/product/AddProduct';
-import AuthAdmin from './admin/auth/AdminAuth';
-import PayPalButton from './cart/PayPalButton';
+import AddProduct from './admin/product/addProduct';
+import AuthAdmin from './admin/auth/adminAuth';
+import PayPalButton from './cart/payPalButton';
 import Products from './product/Products';
 import ProductItem from './product/ProductItem';
 import NotFound from './NotFound';
+
+import styles from './app.scss';
+console.log(styles);
 
 class App extends Component {
   componentDidMount() {
@@ -19,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className={styles.app}>
           React is working!
           {/* <AuthAdmin /> */}
           <Switch>

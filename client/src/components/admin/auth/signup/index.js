@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { signUpSubmit } from '../../../actions';
+import { signUpSubmit } from '../../../../actions';
 
 // const signupClick = () => {
 //   const userInfo = {

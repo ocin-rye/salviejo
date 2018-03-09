@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import SignUp from './SignUp';
-import Login from './Login';
-import Logout from './Logout';
+import SignUp from '../signup';
+import Login from '../login';
+import Logout from '../logout';
 
 class AdminAuth extends Component {
   // componentWillReceiveProps(nextProps) {
@@ -65,7 +65,11 @@ class AdminAuth extends Component {
 }
 
 AdminAuth.propTypes = {
-  auth: PropTypes.oneOfType([PropTypes.bool, PropTypes.object, PropTypes.string]).isRequired,
+  auth: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.object,
+    PropTypes.string,
+  ]).isRequired,
 };
 
 function mapStateToProps({ auth }) {

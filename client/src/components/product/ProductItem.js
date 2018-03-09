@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
 import { fetchProductItem } from '../../actions';
-import AddToCartButton from '../cart/AddToCartButton';
-import RemoveFromCartButton from '../cart/RemoveFromCartButton';
-import IncreaseQuantityButton from '../cart/IncreaseQuantityButton';
-import DecreaseQuantityButton from '../cart/DecreaseQuantityButton';
+import AddToCartButton from '../cart/addToCartButton';
+import RemoveFromCartButton from '../cart/removeFromCartButton';
+import IncreaseQuantityButton from '../cart/increaseQuantityButton';
+import DecreaseQuantityButton from '../cart/decreaseQuantityButton';
 
 class ProductItem extends Component {
   componentDidMount() {
@@ -19,7 +19,9 @@ class ProductItem extends Component {
 
     // console.log();
 
-    const productItemQuery = this.props.match.params.productItem.toLowerCase().replace(/-/g, ' ');
+    const productItemQuery = this.props.match.params.productItem
+      .toLowerCase()
+      .replace(/-/g, ' ');
 
     // console.log(productItemQuery);
 
@@ -27,7 +29,9 @@ class ProductItem extends Component {
 
     const productTypes = ['collection', 'souvenirs', 'other'];
 
-    if (!_.includes(productTypes, this.props.match.params.products.toLowerCase())) {
+    if (
+      !_.includes(productTypes, this.props.match.params.products.toLowerCase())
+    ) {
       // console.log('this is a valid product type page.');
       this.props.history.replace('/notfound');
     }
@@ -40,12 +44,19 @@ class ProductItem extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.match.params.productItem !== nextProps.match.params.productItem) {
-      const productItemQuery = nextProps.match.params.productItem.toLowerCase().replace(/-/g, ' ');
+    if (
+      this.props.match.params.productItem !== nextProps.match.params.productItem
+    ) {
+      const productItemQuery = nextProps.match.params.productItem
+        .toLowerCase()
+        .replace(/-/g, ' ');
       this.props.fetchProductItem({ productItemQuery });
     }
 
-    if (JSON.stringify(this.props.productItem) !== JSON.stringify(nextProps.productItem)) {
+    if (
+      JSON.stringify(this.props.productItem) !==
+      JSON.stringify(nextProps.productItem)
+    ) {
       if (nextProps.productItem === false) {
         return this.props.history.replace('/notfound');
       }
@@ -67,7 +78,12 @@ class ProductItem extends Component {
             {product.style.map((style, index) => (
               <div key={style}>
                 <label>{style}</label>
-                <Field name="style" type="radio" value={style} component="input" />
+                <Field
+                  name="style"
+                  type="radio"
+                  value={style}
+                  component="input"
+                />
               </div>
             ))}
           </form>

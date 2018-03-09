@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToCart } from '../../actions';
+import { addToCart } from '../../../actions';
 
 class AddToCartButton extends Component {
   constructor(props) {
@@ -36,7 +36,11 @@ class AddToCartButton extends Component {
       <div>
         <h1>Add To Cart Button</h1>
         {this.state.addedToCart ? <div>Added to Cart</div> : <div />}
-        {this.state.styleChoice ? <div /> : <div>Style is empty. Must provide style.</div>}
+        {this.state.styleChoice ? (
+          <div />
+        ) : (
+          <div>Style is empty. Must provide style.</div>
+        )}
         <div>
           <button onClick={this.handleClick.bind(this)}>Add To Cart</button>
         </div>
