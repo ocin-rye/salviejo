@@ -1,5 +1,3 @@
-
-
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
@@ -167,22 +165,14 @@ module.exports = {
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
-                  fallback: {
-                    loader: require.resolve('style-loader'),
-                    options: {
-                      hmr: false,
-                    },
-                  },
+                  fallback: loader: require.resolve('style-loader'),
                   use: [
-                    require.resolve('style-loader'),
                     {
                       loader: require.resolve('css-loader'),
                       options: {
                         importLoaders: 1,
-                        modules: true,
                         minimize: true,
-                        sourceMap: shouldUseSourceMap,
-                        localIdentName: '[name]__[local]___[hash:base64:5]',
+                        sourceMap: true,
                       },
                     },
                     {
