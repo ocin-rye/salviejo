@@ -5,11 +5,11 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
-import { fetchProductItem } from '../../actions';
-import AddToCartButton from '../cart/addToCartButton';
-import RemoveFromCartButton from '../cart/removeFromCartButton';
-import IncreaseQuantityButton from '../cart/increaseQuantityButton';
-import DecreaseQuantityButton from '../cart/decreaseQuantityButton';
+import { fetchProductItem } from '../../../actions';
+import AddToCartButton from '../../cart/addToCartButton';
+import RemoveFromCartButton from '../../cart/removeFromCartButton';
+import IncreaseQuantityButton from '../../cart/increaseQuantityButton';
+import DecreaseQuantityButton from '../../cart/decreaseQuantityButton';
 
 class ProductItem extends Component {
   componentDidMount() {

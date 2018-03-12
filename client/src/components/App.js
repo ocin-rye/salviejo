@@ -7,9 +7,9 @@ import * as actions from '../actions';
 import AddProduct from './admin/product/addProduct';
 import AuthAdmin from './admin/auth/adminAuth';
 import PayPalButton from './cart/payPalButton';
-import Products from './product/Products';
-import ProductItem from './product/ProductItem';
-import NotFound from './NotFound';
+import Products from './product/products';
+import ProductItem from './product/productItem';
+import NotFound from './notFound';
 
 import styles from './app.scss';
 console.log(styles);

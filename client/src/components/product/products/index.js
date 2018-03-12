@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../../actions';
+import { fetchProducts } from '../../../actions';
 
 class Products extends Component {
   componentDidMount() {
