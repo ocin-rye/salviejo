@@ -1,0 +1,17 @@
+@mixin large-view-width {
+  @media (min-width: #{$breakpoint-large}) {
+    @content;
+  }
+}
+
+@mixin medium-view-width {
+  @media (min-width: #{$breakpoint-small}) and (max-width: #{$breakpoint-large - 1px}) {
+    @content;
+  }
+}
+
+@mixin small-view-width {
+  @media (max-width: #{$breakpoint-small - 1px}) {
+    @content;
+  }
+}

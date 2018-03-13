@@ -1,0 +1,169 @@
+.home {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  max-width: 1440px;
+  max-height: 1024px;
+  height: 100vh;
+  min-height: 600px;
+}
+
+.columnOne {
+  position: absolute;
+  display: block;
+  width: 55%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-image: url('../images/home_shop/0.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.heading {
+  display: block;
+  width: 100%;
+  height: 11%;
+}
+
+.headingText {
+  display: inline-block;
+  font-size: 1.4rem;
+  opacity: 0.9;
+  margin-left: 1rem;
+  color: white;
+}
+
+.columnOneBody {
+  display: block;
+  position: relative;
+  width: 70%;
+  min-height: 200px;
+  color: #ffffff;
+  font-family: 'orator-std', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: center;
+  margin-left: 30%;
+  margin-top: 50px;
+}
+
+.about {
+  display: block;
+  position: absolute;
+  width: 50%;
+  left: 0;
+}
+
+.stockists {
+  display: block;
+  position: absolute;
+  width: 50%;
+  right: 5rem;
+}
+
+.collection {
+  display: block;
+  position: absolute;
+  width: 50%;
+  left: 0;
+  bottom: 0;
+}
+
+.contact {
+  display: block;
+  position: absolute;
+  width: 50%;
+  right: 0;
+  bottom: 0;
+}
+
+.columnOneImage {
+  max-width: 300px;
+  width: 100%;
+}
+
+.columnTwo {
+  position: absolute;
+  display: block;
+  width: 45%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  left: 55%;
+  background-image: url('../images/home_shop/1.gif');
+  background-size: cover;
+  background-position: center top;
+}
+
+.columnTwoImage {
+  display: block;
+  position: relative;
+  margin: auto;
+  width: 45%;
+  height: auto;
+  margin-top: 60%;
+}
+
+.columnTwoImage:hover {
+  width: 45%;
+  height: auto;
+  animation-name: home-shop-pic-ani;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes home-shop-pic-ani {
+  0% {
+    filter: invert(0%);
+  }
+  100% {
+    filter: invert(75%);
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 769px) {
+  .columnOneBody {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    color: #ffffff;
+    font-family: 'orator-std', Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-size: 2em;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 50px;
+  }
+
+  .about {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .stockists {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .collection {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .contact {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+}

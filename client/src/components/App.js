@@ -6,6 +6,7 @@ import * as actions from '../actions';
 
 import AddProduct from './admin/product/addProduct';
 import AuthAdmin from './admin/auth/adminAuth';
+import Home from './home';
 import PayPalButton from './cart/payPalButton';
 import Products from './product/products';
 import ProductItem from './product/productItem';
@@ -26,6 +27,7 @@ class App extends Component {
           React is working!
           {/* <AuthAdmin /> */}
           <Switch>
+            <Route exact path="/" component={Home} />
             <Route exact path="/admin" component={AuthAdmin} />
             <Route exact path="/cart" component={PayPalButton} />
             <Route exact path="/addproduct" component={AddProduct} />

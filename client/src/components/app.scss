@@ -1,7 +1,16 @@
+@import './styles/bootstrap-reboot/bootstrap-reboot';
+
+html {
+  font-size: 62.5%;
+}
+
 body {
-  background-color: lighten(green, 50%);
+  // background-color: lighten(green, 50%);
+  font-family: 'orator-std', Helvetica, Arial, sans-serif;
+  // font-style: normal;
+  // color: #000000;
 }
 
 .app {
-  background-color: red;
+  // background-color: red;
 }
