@@ -2,7 +2,7 @@ import React from 'react';
 
 const Stockists = () => (
   <div>
-    <div>This is home</div>
+    <div>This is stockists</div>
   </div>
 );
 
