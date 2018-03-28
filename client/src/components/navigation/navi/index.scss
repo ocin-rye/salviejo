@@ -1,0 +1,43 @@
+.menu {
+  display: flex;
+  font-size: 1.4rem;
+  width: auto;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.menuColumn {
+  display: block;
+  width: auto;
+  // text-align: center;
+  // font-size: 0.9em;
+  // opacity: 0.85;
+  // height: auto;
+  // float: left;
+}
+
+.menuItem {
+  // margin: auto;
+  color: black;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.dropDown {
+  display: block;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+@media screen and (min-width: 0px) and (max-width: 769px) {
+  .menu {
+    display: none;
+  }
+}
