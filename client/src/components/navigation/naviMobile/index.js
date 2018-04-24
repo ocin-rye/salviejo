@@ -30,6 +30,7 @@ class NaviMobile extends Component {
           <div className={styles.menuColumn}>
             <img
               src={menuIconOpen}
+              alt="open mobile menu icon"
               onClick={() =>
                 this.setState({
                   showMenu: !this.state.showMenu,
@@ -47,6 +48,7 @@ class NaviMobile extends Component {
             <img
               className={styles.icon}
               src={menuIconClose}
+              alt="close mobile menu icon"
               onClick={() =>
                 this.setState({
                   showMenu: !this.state.showMenu,
@@ -66,32 +68,32 @@ class NaviMobile extends Component {
               </li>
               <li>
                 <span className="selected">
-                  <Link to="description">description</Link>
+                  <Link to="/collection/description">description</Link>
                 </span>
               </li>
               <li>
                 <span className="not-selected">
-                  <Link to="lookbook">lookbook</Link>
+                  <Link to="/collection/lookbook">lookbook</Link>
                 </span>
               </li>
               <li>
                 <span className="not-selected">
-                  <Link to="trip-photos">trip photos</Link>
+                  <Link to="/collection/trip-photos">trip photos</Link>
                 </span>
               </li>
               <li>
                 <span className="selected">
-                  <Link to="shop-collection">collection</Link>
+                  <Link to="/shop/collection">collection</Link>
                 </span>
               </li>
               <li>
                 <span className="not-selected">
-                  <Link to="shop-souvenirs">souvenirs</Link>
+                  <Link to="/shop/souvenirs">souvenirs</Link>
                 </span>
               </li>
               <li>
                 <span className="not-selected">
-                  <Link to="shop-other">other</Link>
+                  <Link to="/shop/other">other</Link>
                 </span>
               </li>
               <li>

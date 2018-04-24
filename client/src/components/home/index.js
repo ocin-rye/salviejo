@@ -13,7 +13,7 @@ import shopImage from '../images/home_shop/lot_4_sale_inc_text.jpg';
 
 class Home extends Component {
   componentDidMount() {
-    document.title = 'Home';
+    document.title = 'Home - Salviejo';
   }
 
   render() {
@@ -42,7 +42,7 @@ class Home extends Component {
                 alt="stockists menu"
               />
             </Link>
-            <Link to="/lookbook" className={styles.collection} id="collection">
+            <Link to="/collection/lookbook" className={styles.collection} id="collection">
               <img
                 src={collectionImage}
                 className={styles.columnOneImage}
@@ -59,7 +59,7 @@ class Home extends Component {
           </div>
         </div>
         <div className={styles.columnTwo}>
-          <Link to="/shop-collection">
+          <Link to="/shop/collection">
             <img
               src={shopImage}
               className={styles.columnTwoImage}

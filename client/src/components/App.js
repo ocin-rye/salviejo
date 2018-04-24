@@ -34,8 +34,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* React is working! */}
-          {/* <AuthAdmin /> */}
           <Switch>
             <Route exact path="/" />
             <Route path="/:withNavigation" component={Navigation} />
@@ -47,16 +45,17 @@ class App extends Component {
             <Route exact path="/addproduct" component={AddProduct} />
             <Route exact path="/admin" component={AuthAdmin} />
             <Route exact path="/cart" component={PayPalButton} />
+            <Route exact path="/collection/description" component={CollectionDescription} />
+            <Route exact path="/collection/lookbook" component={CollectionLookbook} />
+            <Route exact path="/collection/trip-photos" component={CollectionTripPhotos} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/shop/collection" component={ShopCollection} />
+            <Route exact path="/shop/other" component={ShopOther} />
+            <Route exact path="/shop/souvenirs" component={ShopSouvenirs} />
             <Route exact path="/stockists" component={Stockists} />
             <Route path="/notfound" component={NotFound} />
             <Route path="/:products/:productItem" component={ProductItem} />
             <Route path="/:products" component={Products} />
-            {/* <Route path="/:products/:product-item" component={ProductItem} /> */}
-            {/* <Header />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={Dashboard} />
-            <Route path="/surveys/new" component={SurveyNew} /> */}
           </Switch>
         </div>
       </Router>
