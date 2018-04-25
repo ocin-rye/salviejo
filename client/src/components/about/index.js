@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import styles from './index.scss';
 
@@ -40,14 +39,20 @@ class About extends Component {
           <div className={styles.cell_2}>
             <div className={styles.cell_content}>
               <a href="http://kristinesalviejo.com/">
-                <img src="https://res.cloudinary.com/salviejo/image/upload/v1524574960/shop/about/click_here.png" />
+                <img
+                  src="https://res.cloudinary.com/salviejo/image/upload/v1524574960/shop/about/click_here.png"
+                  alt="click here"
+                />
               </a>
             </div>
           </div>
           <div className={styles.cell_3}>
             <div className={styles.cell_content}>
               <a href="http://www.para-dys.com/">
-                <img src="https://res.cloudinary.com/salviejo/image/upload/v1524574960/shop/about/and_here.png" />
+                <img
+                  src="https://res.cloudinary.com/salviejo/image/upload/v1524574960/shop/about/and_here.png"
+                  alt="and here"
+                />
               </a>
             </div>
           </div>
