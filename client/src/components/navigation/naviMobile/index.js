@@ -29,6 +29,7 @@ class NaviMobile extends Component {
           </div>
           <div className={styles.menuColumn}>
             <img
+              className={styles.icon}
               src={menuIconOpen}
               alt="open mobile menu icon"
               onClick={() =>

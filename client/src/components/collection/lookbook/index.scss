@@ -1,0 +1,44 @@
+.lookbook {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  max-width: 1440px;
+  max-height: 1024px;
+  height: 100vh;
+  min-height: 400px;
+}
+
+.images {
+  display: block;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: 10em;
+  height: 80vh;
+  overflow: scroll;
+  max-width: 1600px;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.image {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+img {
+  width: 100%;
+}
+
+// img:hover {
+//   -moz-transform: scaleX(-1);
+//   -o-transform: scaleX(-1);
+//   -webkit-transform: scaleX(-1);
+//   transform: scaleX(-1);
+//   filter: FlipH;
+//   -ms-filter: 'FlipH';
+// }
