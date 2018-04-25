@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 
 import styles from './index.scss';
 
-import aboutImage from '../images/home_shop/about-text.png';
-import stockistsImage from '../images/home_shop/stockists-text.png';
-import collectionImage from '../images/home_shop/collection-text.png';
-import contactImage from '../images/home_shop/contact-text.png';
-import shopImage from '../images/home_shop/lot_4_sale_inc_text.jpg';
-
-// console.log(styles);
-
 class Home extends Component {
   componentDidMount() {
     document.title = 'Home - Salviejo';
@@ -30,28 +22,40 @@ class Home extends Component {
           <div className={styles.columnOneBody}>
             <Link to="/about" className={styles.about} id="about">
               <img
-                src={aboutImage}
+                src={
+                  'http://res.cloudinary.com/salviejo/image/upload/v1524574628/shop/home/about-text.png'
+                }
                 className={styles.columnOneImage}
                 alt="about menu"
               />
             </Link>
             <Link to="/stockists" className={styles.stockists} id="stockists">
               <img
-                src={stockistsImage}
+                src={
+                  'https://res.cloudinary.com/salviejo/image/upload/v1524574628/shop/home/stockists-text.png'
+                }
                 className={styles.columnOneImage}
                 alt="stockists menu"
               />
             </Link>
-            <Link to="/collection/lookbook" className={styles.collection} id="collection">
+            <Link
+              to="/collection/lookbook"
+              className={styles.collection}
+              id="collection"
+            >
               <img
-                src={collectionImage}
+                src={
+                  'https://res.cloudinary.com/salviejo/image/upload/v1524574628/shop/home/collection-text.png'
+                }
                 className={styles.columnOneImage}
                 alt="collection menu"
               />
             </Link>
             <Link to="/contact" className={styles.contact} id="contact">
               <img
-                src={contactImage}
+                src={
+                  'https://res.cloudinary.com/salviejo/image/upload/v1524574628/shop/home/contact-text.png'
+                }
                 className={styles.columnOneImage}
                 alt="contact menu"
               />
@@ -61,7 +65,9 @@ class Home extends Component {
         <div className={styles.columnTwo}>
           <Link to="/shop/collection">
             <img
-              src={shopImage}
+              src={
+                'https://res.cloudinary.com/salviejo/image/upload/v1524574628/shop/home/lot_4_sale_inc_text.jpg'
+              }
               className={styles.columnTwoImage}
               alt="shop menu"
             />
