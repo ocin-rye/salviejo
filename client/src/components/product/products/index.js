@@ -6,6 +6,8 @@ import { fetchProducts } from '../../../actions';
 
 import styles from './index.scss';
 
+import ProductsItem from './productsItem';
+
 class Products extends Component {
   constructor(props) {
     super(props);
@@ -42,47 +44,20 @@ class Products extends Component {
   renderContent() {
     console.log(this.props);
     return this.props.products.map(product => (
-      <div key={product._id}>
-        <div>
-          <h2>{product.name}</h2>
-          <h2>
-            <Link
-              to={`/${this.props.match.params.products}/${product.name
-                .replace(/\s+/g, '-')
-                .toLowerCase()}`}
-            >
-              {product.name}
-            </Link>
-          </h2>
-          <p>{product.name.replace(/\s+/g, '-').toLowerCase()}</p>
-          <p>{product.type}</p>
-        </div>
-        <div>
-          <h2>
-            {product.style.map((styleItem, index) => (
-              <p key={`Style Item ${index + 1}`}>{styleItem}</p>
-            ))}
-          </h2>
-        </div>
-        <div>
-          <h2>{product.price}</h2>
-        </div>
-        <div>
-          <h2>
-            {product.images.map((image, index) => (
-              <p key={`Item Image ${index + 1}`}>{image}</p>
-            ))}
-          </h2>
-        </div>
-      </div>
+      <ProductsItem
+        productsItemInfo={product}
+        productsType={this.props.match.params.products}
+        key={product._id}
+      />
     ));
   }
 
   render() {
     return (
       <div className={styles.products}>
-        <h1>Products Page</h1>
-        <div>{console.log(this.state.componentLoaded)}</div>
+        <h1 className={styles.pageHeader}>
+          {this.props.match.params.products}
+        </h1>
         <div>
           {this.state.componentLoaded ? this.renderContent() : '...Loading'}
         </div>

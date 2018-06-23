@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from '../actions';
 
+import ScrollToTop from './scrollToTop';
+
 import About from './about';
 import AddProduct from './admin/product/addProduct';
 import AuthAdmin from './admin/auth/adminAuth';
@@ -33,44 +35,49 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Switch>
-            <Route exact path="/" />
-            <Route path="/:withNavigation" component={Navigation} />
-          </Switch>
+        <ScrollToTop>
+          <div>
+            <Switch>
+              <Route exact path="/" />
+              <Route path="/:withNavigation" component={Navigation} />
+            </Switch>
 
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/addproduct" component={AddProduct} />
-            <Route exact path="/admin" component={AuthAdmin} />
-            <Route exact path="/cart" component={PayPalButton} />
-            <Route
-              exact
-              path="/collection/description"
-              component={CollectionDescription}
-            />
-            <Route
-              exact
-              path="/collection/lookbook"
-              component={CollectionLookbook}
-            />
-            <Route
-              exact
-              path="/collection/trip-photos"
-              component={CollectionTripPhotos}
-            />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/shop/collection" component={ShopCollection} />
-            <Route exact path="/shop/other" component={ShopOther} />
-            <Route exact path="/shop/souvenirs" component={ShopSouvenirs} />
-            <Route exact path="/stockists" component={Stockists} />
-            <Route path="/notfound" component={NotFound} />
-            <Route path="/:products/:productItem/:other" component={NotFound} />
-            <Route path="/:products/:productItem" component={ProductItem} />
-            <Route path="/:products" component={Products} />
-          </Switch>
-        </div>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/addproduct" component={AddProduct} />
+              <Route exact path="/admin" component={AuthAdmin} />
+              <Route exact path="/cart" component={PayPalButton} />
+              <Route
+                exact
+                path="/collection/description"
+                component={CollectionDescription}
+              />
+              <Route
+                exact
+                path="/collection/lookbook"
+                component={CollectionLookbook}
+              />
+              <Route
+                exact
+                path="/collection/trip-photos"
+                component={CollectionTripPhotos}
+              />
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/shop/collection" component={ShopCollection} />
+              <Route exact path="/shop/other" component={ShopOther} />
+              <Route exact path="/shop/souvenirs" component={ShopSouvenirs} />
+              <Route exact path="/stockists" component={Stockists} />
+              <Route path="/notfound" component={NotFound} />
+              <Route
+                path="/:products/:productItem/:other"
+                component={NotFound}
+              />
+              <Route path="/:products/:productItem" component={ProductItem} />
+              <Route path="/:products" component={Products} />
+            </Switch>
+          </div>
+        </ScrollToTop>
       </Router>
     );
   }
