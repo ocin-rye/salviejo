@@ -15,7 +15,7 @@ class ColTripPhotos extends Component {
         <div className={styles.image} key={`Trip Photo ${i + 1}`}>
           {/* <img src="images/lookbook/' + (i+1) + '.jpg" /> */}
           <img
-            src={`http://res.cloudinary.com/salviejo/image/upload/v1524575028/shop/trip-photos/${i +
+            src={`https://res.cloudinary.com/salviejo/image/upload/v1524575028/shop/trip-photos/${i +
               1}.jpg`}
             alt={`Trip ${i + 1}`}
           />

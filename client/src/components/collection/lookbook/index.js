@@ -15,7 +15,7 @@ class ColLookbook extends Component {
         <div className={styles.image} key={`Lookbook ${i + 1}`}>
           {/* <img src="images/lookbook/' + (i+1) + '.jpg" /> */}
           <img
-            src={`http://res.cloudinary.com/salviejo/image/upload/v1524575028/shop/lookbook/${i +
+            src={`https://res.cloudinary.com/salviejo/image/upload/v1524575028/shop/lookbook/${i +
               1}.jpg`}
             alt={`Lookbook ${i + 1}`}
           />
