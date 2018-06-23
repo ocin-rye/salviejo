@@ -84,17 +84,17 @@ class NaviMobile extends Component {
               </li>
               <li>
                 <span className="selected">
-                  <Link to="/shop/collection">collection</Link>
+                  <Link to="/collection">collection</Link>
                 </span>
               </li>
               <li>
                 <span className="not-selected">
-                  <Link to="/shop/souvenirs">souvenirs</Link>
+                  <Link to="/souvenirs">souvenirs</Link>
                 </span>
               </li>
               <li>
                 <span className="not-selected">
-                  <Link to="/shop/other">other</Link>
+                  <Link to="/other">other</Link>
                 </span>
               </li>
               <li>

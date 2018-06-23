@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Stockists = () => (
-  <div>
-    <div>This is stockists</div>
-  </div>
-);
+import styles from './index.scss';
 
+class Stockists extends Component {
+  componentDidMount() {
+    document.title = 'Stockists - Salviejo';
+  }
+
+  render() {
+    return (
+      <div className={styles.description}>
+        <div className={styles.row_1}>
+          <p>stockists coming soon</p>
+        </div>
+      </div>
+    );
+  }
+}
 export default Stockists;

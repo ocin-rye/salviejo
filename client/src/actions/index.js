@@ -9,13 +9,13 @@ import {
   SUBTRACT_QUANTITY,
 } from './types';
 
-export const fetchUser = () => async (dispatch) => {
+export const fetchUser = () => async dispatch => {
   const res = await axios.get('/api/current_user');
 
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export const loginSubmit = values => async (dispatch) => {
+export const loginSubmit = values => async dispatch => {
   // console.log('value', values);
 
   const res = await axios.post('/api/login', values);
@@ -23,7 +23,7 @@ export const loginSubmit = values => async (dispatch) => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export const signUpSubmit = values => async (dispatch) => {
+export const signUpSubmit = values => async dispatch => {
   // console.log('value', values);
 
   const res = await axios.post('/api/signup', values);
@@ -31,7 +31,7 @@ export const signUpSubmit = values => async (dispatch) => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export const productSubmit = values => async (dispatch) => {
+export const productSubmit = values => async dispatch => {
   // console.log('value', values);
 
   const res = await axios.post('/api/products', values);
@@ -39,39 +39,42 @@ export const productSubmit = values => async (dispatch) => {
   dispatch({ type: SUBMIT_PRODUCT, payload: res.data });
 };
 
-export const fetchProducts = values => async (dispatch) => {
+export const fetchProducts = values => async dispatch => {
   // console.log('This is the fetched products values:', values);
-  const res = await axios.get('/api/products', values);
+
+  const res = await axios.get('/api/products', {
+    params: { type: values },
+  });
 
   dispatch({ type: FETCH_PRODUCTS, payload: res.data });
 };
 
-export const fetchProductItem = values => async (dispatch) => {
+export const fetchProductItem = values => async dispatch => {
   // console.log('This is the fetched product item values:', values);
   const res = await axios.get('/api/product_item', { params: values });
 
   dispatch({ type: FETCH_PRODUCTS, payload: res.data });
 };
 
-export const addToCart = values => (dispatch) => {
+export const addToCart = values => dispatch => {
   const res = values;
 
   dispatch({ type: ADD_TO_CART, payload: res });
 };
 
-export const removeFromCart = values => (dispatch) => {
+export const removeFromCart = values => dispatch => {
   const res = values;
 
   dispatch({ type: REMOVE_FROM_CART, payload: res });
 };
 
-export const addQuantityCart = values => (dispatch) => {
+export const addQuantityCart = values => dispatch => {
   const res = values;
 
   dispatch({ type: ADD_QUANTITY, payload: res });
 };
 
-export const subtractQuantityCart = values => (dispatch) => {
+export const subtractQuantityCart = values => dispatch => {
   const res = values;
 
   dispatch({ type: SUBTRACT_QUANTITY, payload: res });

@@ -70,15 +70,15 @@ class Navi extends Component {
           <div
             className={this.state.showShopMenu ? styles.dropDown : styles.hide}
           >
-            <Link to="/shop/collection" className={styles.menuItem}>
+            <Link to="/collection" className={styles.menuItem}>
               collection
             </Link>
 
-            <Link to="/shop/souvenirs" className={styles.menuItem}>
+            <Link to="/souvenirs" className={styles.menuItem}>
               souvenirs
             </Link>
 
-            <Link to="/shop/other" className={styles.menuItem}>
+            <Link to="/other" className={styles.menuItem}>
               other
             </Link>
           </div>

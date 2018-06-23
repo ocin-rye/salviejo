@@ -26,7 +26,9 @@ module.exports = (app) => {
   });
 
   app.get('/api/products', async (req, res) => {
-    const products = await Product.find().select({
+    console.log(req.query.type);
+
+    const products = await Product.find({ type: req.query.type }).select({
       description: false,
       sku: false,
       Date: false,
