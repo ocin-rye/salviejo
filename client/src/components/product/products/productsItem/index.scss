@@ -1,2 +1,47 @@
 .productsItem {
+  display: block;
+  width: 45%;
+  margin-bottom: 2rem;
+}
+
+.productsItemImageContainer {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: #ececec;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.productsItemImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  // object-fit: contain;
+}
+
+.productLink {
+  display: block;
+  color: black;
+}
+
+.productLink:hover {
+  color: #fe89ff;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.productName {
+  display: block;
+}
+
+.styleContainer {
+  display: block;
+}
+
+.style {
+  display: inline-block;
+  margin-right: 1rem;
 }

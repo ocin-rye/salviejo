@@ -25,7 +25,7 @@ import ShopSouvenirs from './shop/souvenirs';
 import Stockists from './stockists';
 
 import styles from './app.scss';
-console.log(styles);
+// console.log(styles);
 
 class App extends Component {
   componentDidMount() {

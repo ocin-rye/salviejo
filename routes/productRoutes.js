@@ -29,7 +29,7 @@ module.exports = (app) => {
     console.log(req.query.type);
 
     const products = await Product.find({ type: req.query.type }).select({
-      description: false,
+      // description: false,
       sku: false,
       Date: false,
     });

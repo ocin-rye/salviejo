@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../../../actions';
@@ -42,7 +42,6 @@ class Products extends Component {
   }
 
   renderContent() {
-    console.log(this.props);
     return this.props.products.map(product => (
       <ProductsItem
         productsItemInfo={product}
@@ -58,7 +57,7 @@ class Products extends Component {
         <h1 className={styles.pageHeader}>
           {this.props.match.params.products}
         </h1>
-        <div>
+        <div className={styles.productsItemContainer}>
           {this.state.componentLoaded ? this.renderContent() : '...Loading'}
         </div>
       </div>
