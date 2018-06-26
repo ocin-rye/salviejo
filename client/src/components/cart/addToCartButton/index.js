@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from '../../../actions';
 
+import styles from './index.scss';
+
 class AddToCartButton extends Component {
   constructor(props) {
     super(props);
@@ -33,17 +35,20 @@ class AddToCartButton extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.addToCart}>
         {/* <h1>Add To Cart Button</h1> */}
-        {this.state.addedToCart ? <div>added to cart</div> : <div />}
-        {this.state.styleChoice ? (
-          <div />
-        ) : (
-          <div>style is empty. must provide style.</div>
+        <button onClick={this.handleClick.bind(this)} className={styles.button}>
+          add to cart
+        </button>
+        {this.state.addedToCart ? (
+          <div className={styles.confirmation}>added to cart</div>
+        ) : null}
+        {this.state.styleChoice ? null : (
+          <div className={styles.prompt}>please select a style option</div>
         )}
-        <div>
+        {/* <div>
           <button onClick={this.handleClick.bind(this)}>add to cart</button>
-        </div>
+        </div> */}
         {/* <div>{console.log(this.props)}</div> */}
       </div>
     );

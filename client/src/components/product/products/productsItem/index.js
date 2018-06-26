@@ -4,6 +4,21 @@ import { Link } from 'react-router-dom';
 import styles from './index.scss';
 
 class ProductsItem extends Component {
+  renderStyles() {
+    if (this.props.productsItemInfo.style.length > 1) {
+      return (
+        <div className={styles.style}>
+          {this.props.productsItemInfo.style.length} style options
+        </div>
+      );
+    } else {
+      return this.props.productsItemInfo.style.map((styleItem, index) => (
+        <div key={`Style Item ${index + 1}`} className={styles.style}>
+          {styleItem.toLowerCase()}
+        </div>
+      ));
+    }
+  }
   render() {
     return (
       <div className={styles.productsItem}>
@@ -32,11 +47,12 @@ class ProductsItem extends Component {
             {this.props.productsItemInfo.name.toLowerCase()}
           </div>
           <div className={styles.styleContainer}>
-            {this.props.productsItemInfo.style.map((styleItem, index) => (
+            {this.renderStyles()}
+            {/* {this.props.productsItemInfo.style.map((styleItem, index) => (
               <div key={`Style Item ${index + 1}`} className={styles.style}>
                 {styleItem.toLowerCase()}
               </div>
-            ))}
+            ))} */}
           </div>
           <div>{this.props.productsItemInfo.price}</div>
         </Link>

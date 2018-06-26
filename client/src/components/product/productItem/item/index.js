@@ -34,8 +34,8 @@ class Item extends Component {
         </div>
         <div className={styles.columnTwo}>
           <div className={styles.fixedContainer}>
-            <h1 className={styles.productName}>{product.name}</h1>
-            <p className={styles.productPrice}>{product.price}</p>
+            <h1 className={styles.productName}>{product.name.toLowerCase()}</h1>
+            <p className={styles.productPrice}>${product.price}</p>
             <div className={styles.productDescriptions}>
               {/* {console.log(product)} */}
               {product.description.map((description, index) => (
@@ -47,11 +47,13 @@ class Item extends Component {
                 </div>
               ))}
             </div>
-            <form>
-              styles
+            <form className={styles.productStylesContainer}>
+              <p className={styles.productStylesTitle}>styles</p>
               {product.style.map((style, index) => (
-                <div key={style}>
-                  <label>{style.toLowerCase()}</label>
+                <div key={style} className={styles.productStyles}>
+                  <label className={styles.productStyleOption}>
+                    {style.toLowerCase()}
+                  </label>
                   <Field
                     name="style"
                     type="radio"

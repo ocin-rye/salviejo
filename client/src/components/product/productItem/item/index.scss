@@ -1,9 +1,9 @@
 .productItem {
   display: flex;
   justify-content: space-between;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   position: relative;
-  text-align: right;
+  text-align: center;
   height: 100%;
   width: 100%;
   margin: auto;
@@ -35,14 +35,14 @@
   display: block;
   width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 500px;
   object-fit: cover;
 }
 
 .columnTwo {
   display: flex;
   width: 50%;
-  justify-content: flex-end;
+  justify-content: center;
   // position: fixed;
   // top: 0;
   // bottom: 0;
@@ -60,7 +60,78 @@
 
 .productName {
   display: block;
-  font-size: 14px;
+  font-size: 1.8rem;
   text-decoration: none;
   font-weight: normal;
+  margin-bottom: 2rem;
+}
+
+.productPrice {
+  display: block;
+  margin-bottom: 1.4rem;
+}
+
+.productDescriptions {
+  display: block;
+  margin-bottom: 1.4rem;
+}
+
+.productDescription {
+  display: block;
+}
+
+.productStylesContainer {
+  display: block;
+  max-width: 100px;
+  margin-bottom: 1.4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.productStylesTitle {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.productStyles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.productStyleOption {
+  display: inline-block;
+  margin-right: 0.8rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@media screen and (min-width: 0px) and (max-width: 769px) {
+  .productItem {
+    display: flex;
+    flex-direction: row;
+    // justify-content: flex-end;
+    flex-wrap: wrap;
+    max-height: none;
+    justify-content: center;
+  }
+
+  .columnOne {
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    order: 2;
+  }
+
+  .columnTwo {
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 2rem;
+    order: 1;
+  }
+
+  .fixedContainer {
+    position: static;
+  }
 }
