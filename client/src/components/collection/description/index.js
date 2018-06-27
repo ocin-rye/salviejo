@@ -10,7 +10,8 @@ class ColDescription extends Component {
   render() {
     return (
       <div className={styles.description}>
-        <div className={styles.row_1}>
+        <div className={styles.rowOne}>
+          <p className={styles.title}>collection description</p>
           <p>
             this seemingly op-art inspired collection focuses on a hypnotizing
             textile motif dating back to the 1400’s pre colonial philippines.

@@ -5,25 +5,35 @@
   width: 100%;
   margin: auto;
   max-width: 1440px;
-  max-height: 1024px;
-  height: 100vh;
-  min-height: 600px;
+  min-height: 100vh;
+  // max-height: 1024px;
+  // min-height: 600px;
   background-image: url('https://res.cloudinary.com/salviejo/image/upload/v1524639708/shop/description/description_bg.jpg');
   background-size: cover;
   background-position: center top;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
 }
 
-.description .row_1 {
+.title {
+  display: block;
+  padding-top: 6rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.rowOne {
+  display: block;
   font-size: 1.4rem;
   opacity: 1;
   width: 80%;
   margin: auto;
-  padding-top: 90px;
   color: #ffffff;
 }
 
-.description .row_1 p {
+.rowOne p {
+  display: block;
   margin: auto;
   max-width: 850px;
   padding-bottom: 1.5em;

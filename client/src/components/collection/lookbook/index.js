@@ -12,9 +12,10 @@ class ColLookbook extends Component {
 
     for (let i = 0; i < 17; i++) {
       images.push(
-        <div className={styles.image} key={`Lookbook ${i + 1}`}>
+        <div className={styles.imageContainer} key={`Lookbook ${i + 1}`}>
           {/* <img src="images/lookbook/' + (i+1) + '.jpg" /> */}
           <img
+            className={styles.image}
             src={`https://res.cloudinary.com/salviejo/image/upload/v1524575028/shop/lookbook/${i +
               1}.jpg`}
             alt={`Lookbook ${i + 1}`}
@@ -29,6 +30,7 @@ class ColLookbook extends Component {
   render() {
     return (
       <div className={styles.lookbook}>
+        <p className={styles.title}>collection lookbook</p>
         <div className={styles.images}>{this.lookbookImages()}</div>
       </div>
     );

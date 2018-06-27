@@ -12,9 +12,10 @@ class ColTripPhotos extends Component {
 
     for (let i = 0; i < 16; i++) {
       images.push(
-        <div className={styles.image} key={`Trip Photo ${i + 1}`}>
+        <div className={styles.imageContainer} key={`Trip Photo ${i + 1}`}>
           {/* <img src="images/lookbook/' + (i+1) + '.jpg" /> */}
           <img
+            className={styles.image}
             src={`https://res.cloudinary.com/salviejo/image/upload/v1524575028/shop/trip-photos/${i +
               1}.jpg`}
             alt={`Trip ${i + 1}`}
@@ -29,6 +30,7 @@ class ColTripPhotos extends Component {
   render() {
     return (
       <div className={styles.trip}>
+        <p className={styles.title}>trip photos</p>
         <div className={styles.images}>{this.tripImages()}</div>
       </div>
     );

@@ -22,12 +22,28 @@ class NaviMobile extends Component {
             this.state.showMenu ? styles.hide : styles.show
           }`}
         >
-          <div className={styles.menuColumn}>
-            <Link className={styles.menuLogo} to="/">
-              kristine<br />peñafiel<br />salviejo
-            </Link>
+          <div className={styles.nameRow}>
+            <div className={styles.nameColumn}>
+              <Link className={styles.nameLink} to="/">
+                kristine peñafiel salviejo
+              </Link>
+            </div>
           </div>
-          <div className={styles.menuColumn}>
+          <div className={styles.menuRow}>
+            <div className={styles.menuContainer}>
+              <div
+                className={styles.menuColumn}
+                onClick={() =>
+                  this.setState({
+                    showMenu: !this.state.showMenu,
+                  })
+                }
+              >
+                <span className={styles.menuItem}>- menu -</span>
+              </div>
+            </div>
+          </div>
+          {/* <div className={styles.menuColumn}>
             <img
               className={styles.icon}
               src={menuIconOpen}
@@ -38,14 +54,14 @@ class NaviMobile extends Component {
                 })
               }
             />
-          </div>
+          </div> */}
         </div>
         <div
           className={`${styles.menuOverlay} ${
             this.state.showMenu ? styles.show : styles.hide
           }`}
         >
-          <div className="mobile-menu-items">
+          <div className={styles.menuOverlayRow}>
             <img
               className={styles.icon}
               src={menuIconClose}
@@ -56,63 +72,47 @@ class NaviMobile extends Component {
                 })
               }
             />
-            <ul>
-              <li>
-                <span className="selected">
-                  <Link to="../../index">home</Link>
-                </span>
-              </li>
-              <li>
-                <span className="not-selected">
-                  <Link to="about">about</Link>
-                </span>
-              </li>
-              <li>
-                <span className="selected">
-                  <Link to="/collection/description">description</Link>
-                </span>
-              </li>
-              <li>
-                <span className="not-selected">
-                  <Link to="/collection/lookbook">lookbook</Link>
-                </span>
-              </li>
-              <li>
-                <span className="not-selected">
-                  <Link to="/collection/trip-photos">trip photos</Link>
-                </span>
-              </li>
-              <li>
-                <span className="selected">
-                  <Link to="/collection">collection</Link>
-                </span>
-              </li>
-              <li>
-                <span className="not-selected">
-                  <Link to="/souvenirs">souvenirs</Link>
-                </span>
-              </li>
-              <li>
-                <span className="not-selected">
-                  <Link to="/other">other</Link>
-                </span>
-              </li>
-              <li>
-                <span className="not-selected">
-                  <Link to="shop-other">cart</Link>
-                </span>
-              </li>
-              <li>
-                <span className="not-selected">
-                  <Link to="stockists">stockist</Link>
-                </span>
-              </li>
-              <li>
-                <span className="not-selected">
-                  <Link to="contact">contact</Link>
-                </span>
-              </li>
-            </ul>
+          </div>
+          <div>
+            <Link className={styles.menuOverlayRow} to="/">
+              home
+            </Link>
+            <Link className={styles.menuOverlayRow} to="/about">
+              about
+            </Link>
+            <Link
+              className={styles.menuOverlayRow}
+              to="/collection/description"
+            >
+              description
+            </Link>
+            <Link className={styles.menuOverlayRow} to="/collection/lookbook">
+              lookbook
+            </Link>
+            <Link
+              className={styles.menuOverlayRow}
+              to="/collection/trip-photos"
+            >
+              trip photos
+            </Link>
+            <Link className={styles.menuOverlayRow} to="/collection">
+              collection
+            </Link>
+            <Link className={styles.menuOverlayRow} to="/souvenirs">
+              souvenirs
+            </Link>
+            <Link className={styles.menuOverlayRow} to="/other">
+              other
+            </Link>
+            <Link className={styles.menuOverlayRow} to="/">
+              cart
+            </Link>
+            <Link className={styles.menuOverlayRow} to="/stockists">
+              stockist
+            </Link>
+            <Link className={styles.menuOverlayRow} to="/contact">
+              contact
+            </Link>
           </div>
         </div>
       </div>

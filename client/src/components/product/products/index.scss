@@ -10,7 +10,7 @@
   max-height: 1024px;
   height: 100vh;
   min-height: 600px;
-  padding-top: 90px;
+  padding-top: 6.5rem;
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -18,8 +18,10 @@
 .pageHeader {
   display: block;
   font-size: 1.4rem;
+  text-align: center;
   font-weight: normal;
   margin-bottom: 2rem;
+  color: #585858;
 }
 
 .productsItemContainer {

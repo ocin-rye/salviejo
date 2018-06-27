@@ -2,6 +2,7 @@
   display: block;
   width: 45%;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .productsItemImageContainer {
@@ -31,6 +32,15 @@
   color: #fe89ff;
   text-decoration: none;
   opacity: 0.8;
+}
+
+.productLink:hover .productsItemImage {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: 'FlipH';
 }
 
 .productName {
