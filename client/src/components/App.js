@@ -9,6 +9,7 @@ import ScrollToTop from './scrollToTop';
 import About from './about';
 import AddProduct from './admin/product/addProduct';
 import AuthAdmin from './admin/auth/adminAuth';
+import Cart from './cart';
 import CollectionDescription from './collection/description';
 import CollectionLookbook from './collection/lookbook';
 import CollectionTripPhotos from './collection/tripPhotos';
@@ -16,7 +17,6 @@ import Contact from './contact';
 import Home from './home';
 import Navigation from './navigation';
 import NotFound from './notFound';
-import PayPalButton from './cart/payPalButton';
 import Products from './product/products';
 import ProductItem from './product/productItem';
 import ShopCollection from './shop/collection';
@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <Router>
         <ScrollToTop>
-          <div>
+          <div className={styles.appContainer}>
             <Switch>
               <Route exact path="/" />
               <Route path="/:withNavigation" component={Navigation} />
@@ -47,7 +47,7 @@ class App extends Component {
               <Route exact path="/about" component={About} />
               <Route exact path="/addproduct" component={AddProduct} />
               <Route exact path="/admin" component={AuthAdmin} />
-              <Route exact path="/cart" component={PayPalButton} />
+              <Route exact path="/cart" component={Cart} />
               <Route
                 exact
                 path="/collection/description"

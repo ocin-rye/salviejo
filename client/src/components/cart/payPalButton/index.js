@@ -23,7 +23,9 @@ class PayPalButton extends Component {
       let tax = [];
       const shipping = 20;
 
-      this.props.cart.map(cartItem => subtotal.push(cartItem.price * cartItem.quantity));
+      this.props.cart.map(cartItem =>
+        subtotal.push(cartItem.price * cartItem.quantity),
+      );
 
       this.props.cart.map(cartItem => tax.push('0.01' * cartItem.quantity));
 
@@ -35,7 +37,16 @@ class PayPalButton extends Component {
 
       const total = subtotal + tax + shipping;
 
-      console.log('subtotal:', subtotal, ' tax:', tax, ' shipping:', shipping, ' total:', total);
+      console.log(
+        'subtotal:',
+        subtotal,
+        ' tax:',
+        tax,
+        ' shipping:',
+        shipping,
+        ' total:',
+        total,
+      );
 
       return {
         total: total.toString(),
@@ -78,7 +89,7 @@ class PayPalButton extends Component {
         },
 
         onAuthorize(data, actions) {
-          return actions.payment.execute().then((payment) => {
+          return actions.payment.execute().then(payment => {
             // The payment is complete!
             // You can now show a confirmation message to the customer
           });
@@ -95,6 +106,7 @@ class PayPalButton extends Component {
       <div>
         <p>PayPal Button Component</p>
         {this.renderPayPalButton()}
+        {/* <p>{transactionAmount()}</p> */}
         {/* {console.log(this.props)} */}
         {/* {console.log(this.cartItems())} */}
         <div id="paypal-button" />
