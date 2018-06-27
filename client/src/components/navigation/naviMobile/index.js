@@ -21,47 +21,48 @@ class NaviMobile extends Component {
           className={`${styles.menuTopBar} ${
             this.state.showMenu ? styles.hide : styles.show
           }`}
+          onClick={() =>
+            this.setState({
+              showMenu: !this.state.showMenu,
+            })
+          }
         >
           <div className={styles.nameRow}>
             <div className={styles.nameColumn}>
-              <Link className={styles.nameLink} to="/">
+              <span className={styles.nameLink}>
                 kristine peñafiel salviejo
-              </Link>
+              </span>
             </div>
           </div>
           <div className={styles.menuRow}>
             <div className={styles.menuContainer}>
-              <div
-                className={styles.menuColumn}
-                onClick={() =>
-                  this.setState({
-                    showMenu: !this.state.showMenu,
-                  })
-                }
-              >
+              <div className={styles.menuColumn}>
                 <span className={styles.menuItem}>- menu -</span>
               </div>
             </div>
           </div>
-          {/* <div className={styles.menuColumn}>
-            <img
-              className={styles.icon}
-              src={menuIconOpen}
-              alt="open mobile menu icon"
-              onClick={() =>
-                this.setState({
-                  showMenu: !this.state.showMenu,
-                })
-              }
-            />
-          </div> */}
         </div>
         <div
           className={`${styles.menuOverlay} ${
             this.state.showMenu ? styles.show : styles.hide
           }`}
         >
-          <div className={styles.menuOverlayRow}>
+          <div
+            className={`${styles.menuOverlayTopBar} ${
+              this.state.showMenu ? styles.show : styles.hide
+            }`}
+            onClick={() =>
+              this.setState({
+                showMenu: !this.state.showMenu,
+              })
+            }
+          >
+            <div className={styles.menuOverlayNameRow}>
+              kristine peñafiel salviejo
+            </div>
+            <div className={styles.menuOverlayCloseRow}>- close menu -</div>
+          </div>
+          {/* <div className={styles.menuOverlayRow}>
             <img
               className={styles.icon}
               src={menuIconClose}
@@ -72,8 +73,8 @@ class NaviMobile extends Component {
                 })
               }
             />
-          </div>
-          <div>
+          </div> */}
+          <div className={styles.menuOverlayLinks}>
             <Link className={styles.menuOverlayRow} to="/">
               home
             </Link>
