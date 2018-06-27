@@ -14,6 +14,12 @@ class NaviMobile extends Component {
     };
   }
 
+  closeMenu() {
+    this.setState({
+      showMenu: !this.state.showMenu,
+    });
+  }
+
   render() {
     return (
       <div className={styles.menu}>
@@ -75,43 +81,81 @@ class NaviMobile extends Component {
             />
           </div> */}
           <div className={styles.menuOverlayLinks}>
-            <Link className={styles.menuOverlayRow} to="/">
+            <Link
+              className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
+              to="/"
+            >
               home
             </Link>
-            <Link className={styles.menuOverlayRow} to="/about">
+            <Link
+              className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
+              to="/about"
+            >
               about
             </Link>
             <Link
               className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
               to="/collection/description"
             >
               description
             </Link>
-            <Link className={styles.menuOverlayRow} to="/collection/lookbook">
+            <Link
+              className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
+              to="/collection/lookbook"
+            >
               lookbook
             </Link>
             <Link
               className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
               to="/collection/trip-photos"
             >
               trip photos
             </Link>
-            <Link className={styles.menuOverlayRow} to="/collection">
+            <Link
+              className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
+              to="/collection"
+            >
               collection
             </Link>
-            <Link className={styles.menuOverlayRow} to="/souvenirs">
+            <Link
+              className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
+              to="/souvenirs"
+            >
               souvenirs
             </Link>
-            <Link className={styles.menuOverlayRow} to="/other">
+            <Link
+              className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
+              to="/other"
+            >
               other
             </Link>
-            <Link className={styles.menuOverlayRow} to="/">
+            <Link
+              className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
+              to="/"
+            >
               cart
             </Link>
-            <Link className={styles.menuOverlayRow} to="/stockists">
+            <Link
+              className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
+              to="/stockists"
+            >
               stockist
             </Link>
-            <Link className={styles.menuOverlayRow} to="/contact">
+            <Link
+              className={styles.menuOverlayRow}
+              onClick={this.closeMenu.bind(this)}
+              to="/contact"
+            >
               contact
             </Link>
           </div>
