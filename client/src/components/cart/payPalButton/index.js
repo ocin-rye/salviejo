@@ -3,7 +3,50 @@ import paypal from 'paypal-checkout';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
+import styles from './index.scss';
+
 class PayPalButton extends Component {
+  transactionAmount() {
+    let subtotal = [];
+    let tax = [];
+    const shipping = 20;
+
+    this.props.cart.map(cartItem =>
+      subtotal.push(cartItem.price * cartItem.quantity),
+    );
+
+    this.props.cart.map(cartItem => tax.push('0.30' * cartItem.quantity));
+
+    console.log('subtotal', subtotal);
+    console.log('tax', tax);
+
+    subtotal = _.sum(subtotal);
+    tax = _.sum(tax);
+
+    const total = subtotal + tax + shipping;
+
+    console.log(
+      'subtotal:',
+      subtotal,
+      ' tax:',
+      tax,
+      ' shipping:',
+      shipping,
+      ' total:',
+      total,
+    );
+
+    return {
+      total: total.toFixed(2).toString(),
+      currency: 'USD',
+      details: {
+        subtotal: subtotal.toFixed(2).toString(),
+        tax: tax.toFixed(2).toString(),
+        shipping: shipping.toFixed(2).toString(),
+      },
+    };
+  }
+
   renderPayPalButton() {
     console.log(this.props);
 
@@ -105,11 +148,14 @@ class PayPalButton extends Component {
     return (
       <div>
         <p>PayPal Button Component</p>
+        <p>{this.transactionAmount().details.subtotal}</p>
+        <p>{this.transactionAmount().details.tax}</p>
+        <p>{this.transactionAmount().details.shipping}</p>
         {this.renderPayPalButton()}
         {/* <p>{transactionAmount()}</p> */}
         {/* {console.log(this.props)} */}
         {/* {console.log(this.cartItems())} */}
-        <div id="paypal-button" />
+        <div className={styles.payPalButton} id="paypal-button" />
       </div>
     );
   }
