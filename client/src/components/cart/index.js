@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styles from './index.scss';
 
 import CartItem from './cartItem';
-import PayPalButton from './payPalButton';
+import Checkout from './checkout';
 
 class Cart extends Component {
   componentDidMount() {
@@ -13,13 +13,20 @@ class Cart extends Component {
   render() {
     return (
       <div className={styles.cart}>
-        <div>
-          {console.log(this.props)}
-          <p>cart page</p>
-          {/* {this.props.cart.map(cartItem => {
-            return <CartItem key={cartItem._id} itemInfo={cartItem} />;
-          })} */}
-          <PayPalButton />
+        {console.log(this.props)}
+        <div className={styles.cartTitle}>checkout</div>
+        <div className={styles.cartContainer}>
+          <div className={styles.cartItems}>
+            {this.props.cart.map(cartItem => {
+              return (
+                <CartItem
+                  key={`${cartItem._id} ${cartItem.style}`}
+                  itemInfo={cartItem}
+                />
+              );
+            })}
+          </div>
+          <Checkout />
         </div>
       </div>
     );

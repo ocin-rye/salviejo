@@ -1,0 +1,11 @@
+.checkoutButton {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+.payPalButton {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}

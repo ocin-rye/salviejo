@@ -2,22 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addQuantityCart } from '../../../actions';
 
+import styles from './index.scss';
+
 class IncreaseQuantityButton extends Component {
   handleClick() {
-    // console.log(cartObject);
-
-    this.props.addQuantityCart(this.props.cartItem);
-    // console.log(this.props);
+    this.props.addQuantityCart(this.props.cartItemInfo);
   }
   render() {
     return (
-      <div>
-        + Quantity Button
-        <div>This is the content.</div>
-        <div>
-          <button onClick={this.handleClick.bind(this)}>Cart Item +</button>
-        </div>
-      </div>
+      <button onClick={this.handleClick.bind(this)} className={styles.button}>
+        item +1
+      </button>
     );
   }
 }

@@ -183,7 +183,7 @@ class Navi extends Component {
                     showShopMenu: false,
                   })
                 }
-                to="/stockists"
+                to="/cart"
                 className={styles.menuItem}
               >
                 cart

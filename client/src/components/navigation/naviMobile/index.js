@@ -140,7 +140,7 @@ class NaviMobile extends Component {
             <Link
               className={styles.menuOverlayRow}
               onClick={this.closeMenu.bind(this)}
-              to="/"
+              to="/cart"
             >
               cart
             </Link>

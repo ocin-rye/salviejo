@@ -6,6 +6,19 @@ import _ from 'lodash';
 import styles from './index.scss';
 
 class PayPalButton extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      payPalDiv: false,
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      payPalDiv: true,
+    });
+  }
+
   transactionAmount() {
     let subtotal = [];
     let tax = [];
@@ -146,16 +159,17 @@ class PayPalButton extends Component {
 
   render() {
     return (
-      <div>
-        <p>PayPal Button Component</p>
-        <p>{this.transactionAmount().details.subtotal}</p>
-        <p>{this.transactionAmount().details.tax}</p>
-        <p>{this.transactionAmount().details.shipping}</p>
-        {this.renderPayPalButton()}
+      <div className={styles.checkout}>
+        <p>checkout Button</p>
+        <p>order subtotal: {this.transactionAmount().details.subtotal}</p>
+        <p>tax: {this.transactionAmount().details.tax}</p>
+        <p>shipping: {this.transactionAmount().details.shipping}</p>
+        <p>total: {this.transactionAmount().total}</p>
+        <div className={styles.payPalButton} id="paypal-button" />
+        {this.state.payPalDiv ? this.renderPayPalButton() : '..Loading'}
         {/* <p>{transactionAmount()}</p> */}
         {/* {console.log(this.props)} */}
         {/* {console.log(this.cartItems())} */}
-        <div className={styles.payPalButton} id="paypal-button" />
       </div>
     );
   }

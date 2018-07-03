@@ -2,23 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart } from '../../../actions';
 
+import styles from './index.scss';
+
 class RemoveFromCartButton extends Component {
   handleClick() {
-    this.props.removeFromCart(this.props.cartItem);
-    // console.log(this.props);
+    this.props.removeFromCart(this.props.cartItemInfo);
   }
 
   render() {
     return (
-      <div>
-        <h1>Remove From Cart Button</h1>
-        <div>
-          <button onClick={this.handleClick.bind(this)}>
-            Remove From Cart
-          </button>
-        </div>
-        <div>{console.log(this.props)}</div>
-      </div>
+      <button onClick={this.handleClick.bind(this)} className={styles.button}>
+        remove item
+      </button>
     );
   }
 }

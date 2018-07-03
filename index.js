@@ -13,6 +13,7 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(cookieSession({
@@ -24,6 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
+require('./routes/paymentRoutes')(app);
 require('./routes/productRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
