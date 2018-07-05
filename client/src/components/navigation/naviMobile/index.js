@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import styles from './index.scss';
 
-import menuIconOpen from '../../icons/menuOpen.svg';
-import menuIconClose from '../../icons/menuClose.svg';
+// import menuIconOpen from '../../icons/menuOpen.svg';
+// import menuIconClose from '../../icons/menuClose.svg';
 
 class NaviMobile extends Component {
   constructor(props) {

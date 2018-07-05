@@ -16,12 +16,13 @@ class CartItem extends Component {
         <div className={styles.status}>
           <div className={styles.info}>
             <p>
-              {this.props.itemInfo.name} - {this.props.itemInfo.style}
+              {this.props.itemInfo.name.toLowerCase()} -{' '}
+              {this.props.itemInfo.style.toLowerCase()}
             </p>
             <p>quantity: {this.props.itemInfo.quantity}</p>
             <p>price: ${this.props.itemInfo.price}</p>
-            <p>category: {this.props.itemInfo.type}</p>
-            <p>style: {this.props.itemInfo.style}</p>
+            <p>category: {this.props.itemInfo.type.toLowerCase()}</p>
+            <p>style: {this.props.itemInfo.style.toLowerCase()}</p>
             <p>
               subtotal: ${(
                 this.props.itemInfo.price * this.props.itemInfo.quantity

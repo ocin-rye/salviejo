@@ -88,12 +88,11 @@ class Checkout extends Component {
       <div className={styles.checkout}>
         <div className={styles.fixedContainer}>
           <p>cart total</p>
-          <p>order subtotal: {this.transactionAmount().details.subtotal}</p>
-          <p>tax: {this.transactionAmount().details.tax}</p>
-          <p>shipping: {this.transactionAmount().details.shipping}</p>
+          <p>order subtotal: ${this.transactionAmount().details.subtotal}</p>
+          <p>tax: ${this.transactionAmount().details.tax}</p>
+          <p>shipping: ${this.transactionAmount().details.shipping}</p>
           <p>
-            total:{' '}
-            {this.transactionAmount()
+            total: ${this.transactionAmount()
               .total.toFixed(2)
               .toString()}
           </p>
@@ -107,7 +106,9 @@ class Checkout extends Component {
             billingAddress
             shippingAddress
             stripeKey="pk_test_XTHRlRhCIFvNSEzuWo9G0qUr"
-          />
+          >
+            <button className={styles.button}>pay with card</button>
+          </StripeCheckout>
         </div>
       </div>
     );
