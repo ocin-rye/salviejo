@@ -62,3 +62,27 @@
     justify-content: space-around;
   }
 }
+
+@media screen and (min-width: 0px) and (max-width: 500px) {
+  .cartItem {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .imageContainer {
+    width: 100%;
+  }
+
+  .image {
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+  }
+
+  .status {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
