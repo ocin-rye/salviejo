@@ -3,6 +3,7 @@ import {
   REMOVE_FROM_CART,
   ADD_QUANTITY,
   SUBTRACT_QUANTITY,
+  EMPTY_CART,
 } from '../actions/types';
 
 export default function(state = [], action) {
@@ -64,6 +65,9 @@ export default function(state = [], action) {
         return item;
       });
       return [...cartSubtractQuantity];
+
+    case EMPTY_CART:
+      return [];
 
     default:
       return state;

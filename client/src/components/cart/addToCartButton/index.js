@@ -59,4 +59,7 @@ function mapStateToProps({ cart }) {
   return { cart };
 }
 
-export default connect(mapStateToProps, { addToCart })(AddToCartButton);
+export default connect(
+  mapStateToProps,
+  { addToCart },
+)(AddToCartButton);

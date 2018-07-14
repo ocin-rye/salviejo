@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { emptyCart } from '../../actions';
 
 import styles from './index.scss';
 
@@ -29,6 +30,7 @@ class Cart extends Component {
       .then(response => {
         console.log(response);
         // alert(`We are in business, ${response.data.receipt_email}`);
+        this.props.emptyCart();
         this.setState({ payConfirmation: true });
         // response.json().then(data => {
         //   alert(`We are in business, ${data.email}`);
@@ -67,4 +69,7 @@ function mapStateToProps({ cart }) {
   return { cart };
 }
 
-export default connect(mapStateToProps)(Cart);
+export default connect(
+  mapStateToProps,
+  { emptyCart },
+)(Cart);
