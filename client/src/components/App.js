@@ -87,4 +87,7 @@ App.propTypes = {
   fetchUser: PropTypes.func.isRequired,
 };
 
-export default connect(null, actions)(App);
+export default connect(
+  null,
+  actions,
+)(App);

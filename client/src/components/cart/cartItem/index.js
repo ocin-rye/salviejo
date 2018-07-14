@@ -11,7 +11,11 @@ class CartItem extends Component {
     return (
       <div className={styles.cartItem}>
         <div className={styles.imageContainer}>
-          <img className={styles.image} src={this.props.itemInfo.images[0]} />
+          <img
+            className={styles.image}
+            src={this.props.itemInfo.images[0]}
+            alt="cart item"
+          />
         </div>
         <div className={styles.status}>
           <div className={styles.info}>

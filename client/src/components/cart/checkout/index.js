@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
 import _ from 'lodash';
@@ -13,23 +13,6 @@ class Checkout extends Component {
       // payPalDiv: false,
     };
   }
-
-  onToken = token => {
-    axios
-      .post('/api/charge', JSON.stringify(token), {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .then(response => {
-        console.log(response);
-        alert(`We are in business, ${response.data.receipt_email}`);
-        // response.json().then(data => {
-        //   alert(`We are in business, ${data.email}`);
-        // });
-      });
-  };
-
   transactionAmount() {
     let subtotal = [];
     let tax = [];
@@ -101,7 +84,7 @@ class Checkout extends Component {
             image="https://res.cloudinary.com/salviejo/image/upload/v1524574712/shop/home/home-bg-left.jpg"
             amount={this.transactionAmount().total * 100}
             currency="USD"
-            token={this.onToken}
+            token={this.props.onToken}
             allowRememberMe={false}
             billingAddress
             shippingAddress
