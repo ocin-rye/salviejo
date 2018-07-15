@@ -27,7 +27,7 @@ class Cart extends Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.cart !== nextProps.cart) {
       this.props.calculateCheckout(nextProps.cart);
-      console.log('Props Update', this.props);
+      console.log('Props Update', nextProps);
     }
   }
 
