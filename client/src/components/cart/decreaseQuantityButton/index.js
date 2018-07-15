@@ -8,6 +8,7 @@ class DecreaseQuantityButton extends Component {
   handleClick() {
     this.props.subtractQuantityCart(this.props.cartItemInfo);
   }
+
   render() {
     return (
       <button onClick={this.handleClick.bind(this)} className={styles.button}>
@@ -21,6 +22,7 @@ function mapStateToProps({ cart }) {
   return { cart };
 }
 
-export default connect(mapStateToProps, { subtractQuantityCart })(
-  DecreaseQuantityButton,
-);
+export default connect(
+  mapStateToProps,
+  { subtractQuantityCart },
+)(DecreaseQuantityButton);

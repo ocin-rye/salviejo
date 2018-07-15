@@ -6,3 +6,4 @@ export const REMOVE_FROM_CART = 'remove_from_cart';
 export const ADD_QUANTITY = 'add_quantity';
 export const SUBTRACT_QUANTITY = 'subtract_quantity';
 export const EMPTY_CART = 'empty_cart';
+export const CALCULATE_CHECKOUT = 'calculate_checkout';

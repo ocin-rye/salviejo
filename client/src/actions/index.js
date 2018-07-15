@@ -8,6 +8,7 @@ import {
   ADD_QUANTITY,
   SUBTRACT_QUANTITY,
   EMPTY_CART,
+  CALCULATE_CHECKOUT,
 } from './types';
 
 export const fetchUser = () => async dispatch => {
@@ -85,4 +86,10 @@ export const emptyCart = values => dispatch => {
   const res = 'empty';
 
   dispatch({ type: EMPTY_CART, payload: res });
+};
+
+export const calculateCheckout = values => dispatch => {
+  const res = values;
+
+  dispatch({ type: CALCULATE_CHECKOUT, payload: res });
 };

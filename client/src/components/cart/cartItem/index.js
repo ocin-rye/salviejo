@@ -37,11 +37,6 @@ class CartItem extends Component {
             <IncreaseQuantityButton cartItemInfo={this.props.itemInfo} />
             <DecreaseQuantityButton cartItemInfo={this.props.itemInfo} />
             <RemoveFromCartButton cartItemInfo={this.props.itemInfo} />
-            {/*
-            <IncreaseQuantityButton />
-            <DecreaseQuantityButton cartItemInfo={this.props.itemInfo} />
-            <RemoveFromCartButton />
-            */}
           </div>
         </div>
       </div>

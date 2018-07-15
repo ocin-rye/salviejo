@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { emptyCart } from '../../actions';
+import { emptyCart, calculateCheckout } from '../../actions';
 
 import styles from './index.scss';
 
@@ -17,15 +17,24 @@ class Cart extends Component {
       confirmationInfo: null,
     };
   }
+
   componentDidMount() {
     document.title = 'Cart - Salviejo';
+    this.props.calculateCheckout(this.props.cart);
+    console.log('Props', this.props);
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.cart !== nextProps.cart) {
+      this.props.calculateCheckout(nextProps.cart);
+      console.log('Props Update', this.props);
+    }
+  }
+
   onToken = token => {
     axios
       .post('/api/charge', JSON.stringify(token), {
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
       })
       .then(response => {
         console.log(response);
@@ -41,7 +50,14 @@ class Cart extends Component {
         // });
       });
   };
-  cart() {
+
+  renderCart() {
+    if (this.props.cart.length === 0) {
+      return <div>your cart is empty</div>;
+    }
+    if (this.state.payConfirmation === true) {
+      return <Confirmation />;
+    }
     return (
       <div className={styles.cartContainer}>
         <div className={styles.cartItems}>
@@ -54,34 +70,29 @@ class Cart extends Component {
             );
           })}
         </div>
-        <Checkout onToken={this.onToken.bind(this)} />
+        <Checkout
+          onToken={this.onToken.bind(this)}
+          checkoutValues={this.props.checkout}
+        />
       </div>
     );
   }
-  renderCart() {
-    if (this.props.cart.length === 0) {
-      return <div>your cart is empty</div>;
-    }
 
-    return this.state.payConfirmation ? <Confirmation /> : this.cart();
-  }
   render() {
     return (
       <div className={styles.cart}>
-        {console.log(this.props)}
         <div className={styles.cartTitle}>cart</div>
-        {/* {this.state.payConfirmation ? <Confirmation /> : this.cart()} */}
         {this.renderCart()}
       </div>
     );
   }
 }
 
-function mapStateToProps({ cart }) {
-  return { cart };
+function mapStateToProps({ cart, checkout }) {
+  return { cart, checkout };
 }
 
 export default connect(
   mapStateToProps,
-  { emptyCart },
+  { emptyCart, calculateCheckout },
 )(Cart);

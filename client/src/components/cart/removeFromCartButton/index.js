@@ -22,6 +22,7 @@ function mapStateToProps({ cart }) {
   return { cart };
 }
 
-export default connect(mapStateToProps, { removeFromCart })(
-  RemoveFromCartButton,
-);
+export default connect(
+  mapStateToProps,
+  { removeFromCart },
+)(RemoveFromCartButton);

@@ -36,7 +36,6 @@ class AddToCartButton extends Component {
   render() {
     return (
       <div className={styles.addToCart}>
-        {/* <h1>Add To Cart Button</h1> */}
         <button onClick={this.handleClick.bind(this)} className={styles.button}>
           add to cart
         </button>
@@ -46,10 +45,6 @@ class AddToCartButton extends Component {
         {this.state.styleChoice ? null : (
           <div className={styles.prompt}>please select a style option</div>
         )}
-        {/* <div>
-          <button onClick={this.handleClick.bind(this)}>add to cart</button>
-        </div> */}
-        {/* <div>{console.log(this.props)}</div> */}
       </div>
     );
   }
