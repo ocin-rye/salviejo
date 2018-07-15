@@ -30,8 +30,12 @@ class Cart extends Component {
       .then(response => {
         console.log(response);
         // alert(`We are in business, ${response.data.receipt_email}`);
-        this.props.emptyCart();
-        this.setState({ payConfirmation: true });
+        // this.props.emptyCart();
+        this.setState({
+          payConfirmation: true,
+          confirmationInfo: response.data,
+        });
+        console.log('Data', this.state.confirmationInfo);
         // response.json().then(data => {
         //   alert(`We are in business, ${data.email}`);
         // });
@@ -54,12 +58,20 @@ class Cart extends Component {
       </div>
     );
   }
+  renderCart() {
+    if (this.props.cart.length === 0) {
+      return <div>your cart is empty</div>;
+    }
+
+    return this.state.payConfirmation ? <Confirmation /> : this.cart();
+  }
   render() {
     return (
       <div className={styles.cart}>
         {console.log(this.props)}
         <div className={styles.cartTitle}>cart</div>
-        {this.state.payConfirmation ? <Confirmation /> : this.cart()}
+        {/* {this.state.payConfirmation ? <Confirmation /> : this.cart()} */}
+        {this.renderCart()}
       </div>
     );
   }
