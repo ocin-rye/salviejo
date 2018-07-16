@@ -1,6 +1,7 @@
 const keys = require('../config/keys');
 const stripe = require('stripe')(keys.stripeSecret);
 const nodemailer = require('nodemailer');
+const paymentConfirmation = require('../templates/paymentConfirmation');
 
 module.exports = (app) => {
   app.post('/api/charge', (req, res) => {
@@ -44,12 +45,10 @@ module.exports = (app) => {
       from: keys.mailAddress, // sender address
       to: email, // list of receivers
       subject: 'Order Confirmation', // Subject line
-      html: `
-      <h1>Thank you for your order!</h1>
-      <h2>Order Details:</h2>
-      <p>The amount paid was ${amount} </p>
-      `, // plain text body
+      html: paymentConfirmation(req.body.cart, req.body.checkout), // plain text body
     };
+
+    console.log('HTML String: ', paymentConfirmation(req.body.cart, req.body.checkout));
 
     const charge = stripe.charges
       .create({
