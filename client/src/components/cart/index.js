@@ -33,9 +33,17 @@ class Cart extends Component {
 
   onToken = token => {
     axios
-      .post('/api/charge', JSON.stringify(token), {
-        headers: { 'Content-Type': 'application/json' },
-      })
+      .post(
+        '/api/charge',
+        JSON.stringify({
+          token,
+          cart: this.props.cart,
+          checkout: this.props.checkout,
+        }),
+        {
+          headers: { 'Content-Type': 'application/json' },
+        },
+      )
       .then(response => {
         console.log(response);
         // alert(`We are in business, ${response.data.receipt_email}`);
