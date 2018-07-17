@@ -19,8 +19,8 @@ class Checkout extends Component {
             currency="USD"
             token={this.props.onToken}
             allowRememberMe={false}
-            billingAddress
             shippingAddress
+            billingAddress
             stripeKey="pk_test_XTHRlRhCIFvNSEzuWo9G0qUr"
           >
             <button className={styles.button}>pay with card</button>

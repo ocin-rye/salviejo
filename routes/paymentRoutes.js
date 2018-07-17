@@ -28,9 +28,10 @@ module.exports = (app) => {
       } - Unit Price: $${item.price}`;
     });
 
-    console.log(cart);
+    // console.log(cart);
 
-    // console.log('token:', req.body.token);
+    console.log('token:', req.body.token);
+    console.log('shipping:', req.body.shipping);
     // console.log('cart:', req.body.cart);
 
     const transporter = nodemailer.createTransport({
@@ -45,10 +46,10 @@ module.exports = (app) => {
       from: keys.mailAddress, // sender address
       to: email, // list of receivers
       subject: 'Order Confirmation', // Subject line
-      html: paymentConfirmation(req.body.cart, req.body.checkout), // plain text body
+      html: paymentConfirmation(req.body.cart, req.body.checkout, req.body.shipping), // plain text body
     };
 
-    console.log('HTML String: ', paymentConfirmation(req.body.cart, req.body.checkout));
+    // console.log('HTML String: ', paymentConfirmation(req.body.cart, req.body.checkout));
 
     const charge = stripe.charges
       .create({
@@ -57,6 +58,16 @@ module.exports = (app) => {
         currency: 'usd',
         source: token,
         receipt_email: email,
+        shipping: {
+          name: req.body.shipping.shipping_name,
+          address: {
+            line1: req.body.shipping.shipping_address_line1,
+            city: req.body.shipping.shipping_address_city,
+            state: req.body.shipping.shipping_address_state,
+            postal_code: req.body.shipping.shipping_address_zip,
+            country: req.body.shipping.shipping_address_country,
+          },
+        },
         metadata: cart,
       })
       .then(transporter.sendMail(mailOptions, (err, info) => {

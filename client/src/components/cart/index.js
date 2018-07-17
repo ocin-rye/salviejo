@@ -31,12 +31,15 @@ class Cart extends Component {
     }
   }
 
-  onToken = token => {
+  onToken = (token, shipping) => {
+    console.log('Token: ', token);
+    console.log('Shipping: ', shipping);
     axios
       .post(
         '/api/charge',
         JSON.stringify({
           token,
+          shipping,
           cart: this.props.cart,
           checkout: this.props.checkout,
         }),
