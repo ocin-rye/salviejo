@@ -1,6 +1,10 @@
 module.exports = (cart, checkout, shipping, charge) => {
   const cartItems = [];
 
+  // console.log('charge: ', charge);
+  const now = new Date();
+  const date = now.toLocaleDateString();
+
   cart.forEach((item) => {
     cartItems.push(`<p style="font-family: sans-serif; font-size: 14px; font-weight: normal; padding-bottom: 10px; margin: 0; Margin-bottom: 10px; border-bottom: 1px solid black;">${
       item.name
@@ -119,6 +123,7 @@ module.exports = (cart, checkout, shipping, charge) => {
                                     <tr>
                                         <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
                                             <p style="font-family: sans-serif; font-size: 18px; font-weight: bold; margin: 0; Margin-bottom: 15px; text-align: center;">Thank you for ordering!</p>
+                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; padding-bottom: 10px; margin: 0; Margin-bottom: 10px; text-align: center;">${date}</p>
                                             <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px; text-align: center;">Your order is being processed. We'll send you another email as soon as your order is on the way.</p>
                                             <p style="font-family: sans-serif; font-size: 14px; font-weight: bold; margin: 0; Margin-bottom: 10px;">Shipping Details:</p>
                                             <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0;">${

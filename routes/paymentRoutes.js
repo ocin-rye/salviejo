@@ -28,29 +28,7 @@ module.exports = (app) => {
       } - Unit Price: $${item.price}`;
     });
 
-    // console.log(cart);
-
-    console.log('token:', req.body.token);
-    console.log('shipping:', req.body.shipping);
-    // console.log('cart:', req.body.cart);
-
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: keys.mailAddress,
-        pass: keys.mailPassword,
-      },
-    });
-
-    const mailOptions = {
-      from: keys.mailAddress, // sender address
-      to: email, // list of receivers
-      subject: 'Order Confirmation', // Subject line
-      html: paymentConfirmation(req.body.cart, req.body.checkout, req.body.shipping), // plain text body
-    };
-
-    // console.log('HTML String: ', paymentConfirmation(req.body.cart, req.body.checkout));
-
+    // send stripe charge
     const charge = stripe.charges
       .create({
         amount: amountInt,
@@ -70,12 +48,53 @@ module.exports = (app) => {
         },
         metadata: cart,
       })
-      .then(transporter.sendMail(mailOptions, (err, info) => {
-        if (err) console.log(err);
-        else console.log(info);
-      }))
-      .then(charge => res.send(charge));
+      .then((charge) => {
+        if (charge.paid !== true) {
+          return console.log('Great! the then call was ended');
+        }
 
-    // space
+        // email - account access
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: keys.mailAddress,
+            pass: keys.mailPassword,
+          },
+        });
+        // console.log(charge);
+        // email - destination and contents
+        const mailOptions = {
+          from: keys.mailAddress, // sender address
+          to: email, // list of receivers
+          subject: 'Order Confirmation', // Subject line
+          html: paymentConfirmation(req.body.cart, req.body.checkout, req.body.shipping, charge), // email body
+        };
+
+        // email - send order confirmation
+        transporter.sendMail(mailOptions, (err, info) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(info);
+            console.log(charge);
+            // send order charge informaition
+            res.send(charge);
+          }
+        });
+      })
+      .catch((err) => {
+        switch (err.type) {
+          case 'StripeCardError':
+            // A declined card error
+            console.log(err);
+            res.send(err.message); // => e.g. "Your card's expiration year is invalid."
+            break;
+          default:
+            console.log(err);
+            res.send('Error: Your payment could not be processed. Please try again later.');
+            // Handle any other types of unexpected errors
+            break;
+        }
+      });
   });
 };
