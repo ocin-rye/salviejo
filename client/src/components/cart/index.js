@@ -8,6 +8,7 @@ import styles from './index.scss';
 import CartItem from './cartItem';
 import Checkout from './checkout';
 import Confirmation from './confirmation';
+import Error from './error';
 
 class Cart extends Component {
   constructor(props) {
@@ -15,6 +16,9 @@ class Cart extends Component {
     this.state = {
       payConfirmation: false,
       confirmationInfo: null,
+      error: false,
+      errorType: null,
+      errorMessage: null,
     };
   }
 
@@ -51,6 +55,13 @@ class Cart extends Component {
         console.log(response);
         // alert(`We are in business, ${response.data.receipt_email}`);
         // this.props.emptyCart();
+        if (response.data.error === true) {
+          return this.setState({
+            error: true,
+            errorType: response.data.errorType,
+            errorMessage: response.data.message,
+          });
+        }
         this.setState({
           payConfirmation: true,
           confirmationInfo: response.data,
@@ -65,6 +76,14 @@ class Cart extends Component {
   renderCart() {
     if (this.props.cart.length === 0) {
       return <div>your cart is empty</div>;
+    }
+    if (this.state.error === true) {
+      return (
+        <Error
+          errorType={this.state.errorType}
+          errorMessage={this.state.errorMessage}
+        />
+      );
     }
     if (this.state.payConfirmation === true) {
       return <Confirmation />;

@@ -50,9 +50,12 @@ module.exports = (app) => {
       })
       .then((charge) => {
         if (charge.paid !== true) {
-          return console.log('Great! the then call was ended');
+          return res.send({
+            error: true,
+            errorType: 'payment',
+            message: 'Your charge to the payment processor was unsuccessful',
+          });
         }
-
         // email - account access
         const transporter = nodemailer.createTransport({
           service: 'gmail',
@@ -70,10 +73,17 @@ module.exports = (app) => {
           html: paymentConfirmation(req.body.cart, req.body.checkout, req.body.shipping, charge), // email body
         };
 
+        ('We will contact you by email at  with your order details soon.');
+
         // email - send order confirmation
         transporter.sendMail(mailOptions, (err, info) => {
           if (err) {
             console.log(err);
+            res.send({
+              error: true,
+              errorType: 'email',
+              message: `We will contact you by email at ${email} with your order details soon.`,
+            });
           } else {
             console.log(info);
             console.log(charge);
@@ -87,11 +97,15 @@ module.exports = (app) => {
           case 'StripeCardError':
             // A declined card error
             console.log(err);
-            res.send(err.message); // => e.g. "Your card's expiration year is invalid."
+            res.send({ error: true, errorType: 'payment', message: err.message }); // => e.g. "Your card's expiration year is invalid."
             break;
           default:
             console.log(err);
-            res.send('Error: Your payment could not be processed. Please try again later.');
+            res.send({
+              error: true,
+              errorType: 'payment',
+              message: 'Connection to payment processor unsuccessful',
+            });
             // Handle any other types of unexpected errors
             break;
         }

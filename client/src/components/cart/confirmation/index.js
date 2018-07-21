@@ -9,9 +9,11 @@ class Confirmation extends Component {
       <div className={styles.confirmation}>
         <div className={styles.title}>order confirmed!</div>
         <div className={styles.body}>
-          <p>your order has been recieved.</p>
-          <p>you will recieve a reciept and order details by email.</p>
-          <p>order # 726267181</p>
+          <p>you will recieve a reciept with order details by email.</p>
+          <p>
+            If you have any questions regarding your order feel free to reach
+            out to me at kristine.penafiel.salviejo@gmail.com
+          </p>
         </div>
       </div>
     );
