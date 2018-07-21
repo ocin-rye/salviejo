@@ -56,12 +56,16 @@ class Cart extends Component {
         // alert(`We are in business, ${response.data.receipt_email}`);
         // this.props.emptyCart();
         if (response.data.error === true) {
+          if (response.data.errorType === 'email') {
+            this.props.emptyCart();
+          }
           return this.setState({
             error: true,
             errorType: response.data.errorType,
             errorMessage: response.data.message,
           });
         }
+        this.props.emptyCart();
         this.setState({
           payConfirmation: true,
           confirmationInfo: response.data,
@@ -74,9 +78,6 @@ class Cart extends Component {
   };
 
   renderCart() {
-    if (this.props.cart.length === 0) {
-      return <div>your cart is empty</div>;
-    }
     if (this.state.error === true) {
       return (
         <Error
@@ -87,6 +88,9 @@ class Cart extends Component {
     }
     if (this.state.payConfirmation === true) {
       return <Confirmation />;
+    }
+    if (this.props.cart.length === 0) {
+      return <div>your cart is empty</div>;
     }
     return (
       <div className={styles.cartContainer}>
