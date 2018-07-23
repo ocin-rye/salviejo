@@ -52,7 +52,15 @@ const CustomForm = ({ status, message, onValidated }) => {
         placeholder="your email"
       />
       <br />
-      <button style={{ fontSize: '1.4rem', padding: 5 }} onClick={submit}>
+      <button
+        style={{
+          fontSize: '1.4rem',
+          padding: 5,
+          color: '#c2a1c3',
+          background: '#ffffff',
+        }}
+        onClick={submit}
+      >
         submit
       </button>
     </div>
