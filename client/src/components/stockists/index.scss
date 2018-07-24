@@ -1,32 +1,79 @@
-.description {
+.stockists {
+  color: #585858;
   display: block;
   position: relative;
   height: 100%;
   width: 100%;
+  font-size: 1.4rem;
   margin: auto;
   max-width: 1440px;
-  max-height: 1024px;
-  height: 100vh;
-  min-height: 600px;
-  // background-image: url('http://res.cloudinary.com/salviejo/image/upload/v1524639708/shop/description/description_bg.jpg');
-  // background-size: cover;
-  // background-position: center top;
-  // background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
-.description .row_1 {
-  font-size: 1.4rem;
-  opacity: 1;
-  width: 80%;
-  margin: auto;
-  padding-top: 90px;
-  color: #ffffff;
-}
-
-.description .row_1 p {
-  margin: auto;
-  max-width: 850px;
-  padding-bottom: 1.5em;
+.title {
+  display: block;
+  padding-top: 6.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   text-align: center;
-  color: black;
+}
+
+.content {
+  display: grid;
+  width: 100%;
+  max-width: 1000px;
+  // min-height: 600px;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-rows: 100%;
+  grid-template-areas: '. info .';
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 0px) and (max-width: 769px) {
+  .content {
+    display: grid;
+    width: 100%;
+    max-width: 1000px;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    grid-template-areas: 'info';
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.info {
+  grid-area: info;
+  text-align: center;
+}
+
+.region {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.regionTitle {
+  display: block;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.section {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  display: block;
+  color: #c2a1c3;
+}
+
+.sectionTitleLink {
+  display: block;
+  color: #c2a1c3;
 }

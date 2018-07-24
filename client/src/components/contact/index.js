@@ -22,7 +22,11 @@ class Contact extends Component {
             <p>instagram</p>
           </div>
           <div className={styles.mailingImageContainer}>
-            <img src={mailingImage} className={styles.mailingImage} />
+            <img
+              src={mailingImage}
+              className={styles.mailingImage}
+              alt="contact"
+            />
           </div>
           <div className={styles.mailingList}>
             <MailingList />

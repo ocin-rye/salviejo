@@ -38,8 +38,8 @@ class App extends Component {
         <ScrollToTop>
           <div className={styles.appContainer}>
             <Switch>
-              <Route exact path="/" />
-              <Route path="/:withNavigation" component={Navigation} />
+              {/* <Route exact path="/" /> */}
+              <Route path="/" component={Navigation} />
             </Switch>
 
             <Switch>

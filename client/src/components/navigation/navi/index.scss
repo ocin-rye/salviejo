@@ -34,6 +34,10 @@
   margin-right: auto;
   left: 0;
   right: 0;
+  // background-image: url('https://res.cloudinary.com/salviejo/image/upload/v1524639708/shop/description/description_bg.jpg');
+  // background-size: 100% 100%;
+  // background-position: left top;
+  // background-repeat: no-repeat;
 }
 
 .nameColumn {
@@ -45,7 +49,7 @@
 
 .nameLink {
   display: inline-block;
-  color: #585858;
+  color: #ffffff;
   width: 100%;
   text-align: center;
   padding-top: 0.4rem;
@@ -101,12 +105,26 @@
   // margin-bottom: 0.4rem;
 }
 
+.menuItem:hover {
+  text-decoration: none;
+  color: black;
+}
+
 // .menuItem:before {
 //   content: '~';
 // }
 
 .dropDown {
   display: block;
+  background-color: #c2a1c3;
+  border-radius: 4px;
+  padding-top: 0.4rem;
+}
+
+.dropDown > .menuItem {
+  background: none;
+  border-radius: 4px;
+  padding-bottom: 0.4rem;
 }
 
 .hide {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
-import styles from './index.scss';
+// import styles from './index.scss';
 
 const url = '//xxxx.us13.list-manage.com/subscribe/post?u=zefzefzef&id=fnfgn';
 
@@ -25,7 +25,8 @@ const CustomForm = ({ status, message, onValidated }) => {
         display: 'inline-block',
       }}
     >
-      {status === 'sending' && <div style={{ color: 'black' }}>sending...</div>}
+      <div>mailing list</div>
+      {status === 'sending' && <div style={{ color: 'white' }}>sending...</div>}
       {status === 'error' && (
         <div
           style={{ color: 'red' }}
@@ -34,7 +35,7 @@ const CustomForm = ({ status, message, onValidated }) => {
       )}
       {status === 'success' && (
         <div
-          style={{ color: 'black' }}
+          style={{ color: 'white' }}
           dangerouslySetInnerHTML={{ __html: message }}
         />
       )}
