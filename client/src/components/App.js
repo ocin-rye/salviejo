@@ -15,7 +15,9 @@ import CollectionLookbook from './collection/lookbook';
 import CollectionTripPhotos from './collection/tripPhotos';
 import Contact from './contact';
 import Home from './home';
+import Home2 from './home2';
 import Navigation from './navigation';
+import Navigation2 from './navigation2';
 import NotFound from './notFound';
 import Products from './product/products';
 import ProductItem from './product/productItem';
@@ -38,12 +40,14 @@ class App extends Component {
         <ScrollToTop>
           <div className={styles.appContainer}>
             <Switch>
-              {/* <Route exact path="/" /> */}
-              <Route path="/" component={Navigation} />
+              <Route exact path="/" />
+              <Route exact path="/2" component={Navigation2} />
+              <Route path="/:withNavigation" component={Navigation} />
             </Switch>
 
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/2" component={Home2} />
               <Route exact path="/about" component={About} />
               <Route exact path="/addproduct" component={AddProduct} />
               <Route exact path="/admin" component={AuthAdmin} />
